@@ -1,12 +1,12 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <navigation-view></navigation-view>
   <router-view/>
 </template>
 
 <style>
+
+@import "./assets/css/main.css";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,3 +28,14 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+
+<script>
+  import NavigationView from './components/NavigationView.vue'
+
+  export default{
+    name: 'App',
+    components: {
+      NavigationView
+    }
+  }
+</script>
