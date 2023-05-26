@@ -1,12 +1,12 @@
 <template>
-  <navigation-view></navigation-view>
-  <router-view/>
+  <div>
+    <NavigationMain></NavigationMain>
+    <router-view />
+    <footer-view></footer-view> 
+  </div>
 </template>
 
 <style>
-
-@import "./assets/css/main.css";
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,12 +30,11 @@ nav a.router-link-exact-active {
 </style>
 
 <script>
-  import NavigationView from './components/NavigationView.vue'
+import NavigationMain from "@/components/Navigation.vue";
+import FooterView from './components/FooterView.vue';
 
-  export default{
-    name: 'App',
-    components: {
-      NavigationView
-    }
-  }
+export default {
+  name: "App",
+  components: { NavigationMain, FooterView },
+};
 </script>
