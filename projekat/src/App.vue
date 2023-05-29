@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavigationMain></NavigationMain>
+    <NavigationView></NavigationView>
     <router-view />
     <footer-view></footer-view> 
   </div>
@@ -30,11 +30,11 @@ nav a.router-link-exact-active {
 </style>
 
 <script>
-import NavigationMain from "@/components/Navigation.vue";
 import FooterView from './components/FooterView.vue';
+import NavigationView from './components/NavigationView.vue';
 
 export default {
   name: "App",
-  components: { NavigationMain, FooterView },
+  components: { NavigationView, FooterView },
 };
 </script>

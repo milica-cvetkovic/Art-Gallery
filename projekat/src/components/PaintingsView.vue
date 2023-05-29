@@ -1,0 +1,59 @@
+<template>
+   <div class="row">
+    <div class="col-sm-4 card" v-for="p of paintings" :key="p.name">
+        <img src="../assets/images/paintings/painting1.jpg" alt="image">
+        <div class="card-body">
+          <h5 class="card-title">{{p.name}}</h5>
+          <p class="card-text">
+            {{p.description}}
+          </p>
+          <a href="#" class="btn">Više</a>
+        </div>
+    </div>
+   </div>
+</template>
+
+<script>
+
+  export default{
+    name: 'PaintingsView',
+    data(){
+      return{
+        paintings: []
+      }
+    },
+    created(){
+      if(localStorage.getItem("paintings") == null){
+        this.paintings = [
+          {
+            name: "The Last Supper",
+            description: "Short description",
+            artist: "Leonardo da Vinci",
+            value: 10000,
+            age: 500,
+            photo: "../assets/images/painting1.jpg"
+          },
+          {
+            name: "The Creation od Adam",
+            description: "Short description",
+            artist: "Michaelangelo Buonarotti",
+            value: 7000,
+            age: 500,
+            photo: "../assets/images/painting2.jpg"
+          },
+          {
+            name: "The Birth of Venus",
+            description: "Short description",
+            artist: "Sandro Botticelli",
+            value: 5000,
+            age: 500,
+            photo: "../assets/images/painting3.jpg"
+          }
+        ];
+        localStorage.setItem("paintings", JSON.stringify(this.paintings));
+      }else{
+        this.paintings = JSON.parse(localStorage.getItem("paintings"));
+      }
+    }
+  }
+</script>
