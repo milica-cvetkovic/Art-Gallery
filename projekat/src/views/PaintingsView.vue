@@ -45,6 +45,7 @@ export default {
           value: 10000,
           age: 500,
           photo: 'painting1.jpg',
+          idArtist: 1
         },
         {
           name: "The Creation od Adam",
@@ -53,6 +54,7 @@ export default {
           value: 7000,
           age: 500,
           photo: "painting2.jpg",
+          idArtist: 2
         },
         {
           name: "The Birth of Venus",
@@ -61,6 +63,7 @@ export default {
           value: 5000,
           age: 500,
           photo: "painting3.jpg",
+          idArtist: 4
         },
       ];
       localStorage.setItem("paintings", JSON.stringify(this.paintings));

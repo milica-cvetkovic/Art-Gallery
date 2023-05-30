@@ -25,4 +25,5 @@ const allArtists = [
     }
 ];
 
+localStorage.setItem("allArtists", JSON.stringify(allArtists));
 export default allArtists;

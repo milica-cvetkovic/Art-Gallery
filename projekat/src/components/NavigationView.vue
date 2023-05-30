@@ -16,14 +16,14 @@
             </li>
             <li class="nav-item">
               <div class="dropdown">
-                <router-link
+                <a
                   type="button"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                   class="text-decoration-none"
                   to="/paintings"
-                  >Umetnine</router-link
+                  >Umetnine</a
                 >
                 <ul
                   class="dropdown-menu dropdown-menu-dark"
@@ -90,14 +90,21 @@ export default {
     const router = useRouter();
     console.log(router.currentRoute.value.path);
   },
-  mounted: function () {
-    let url = window.location.href;
-    if (url.includes("artists")) {
-      $("#artists").addClass("");
-    } else {
-      $("#home").addClass("");
+  watch:{
+    $route (to, from){
+      if (from.path == "/paintings"){
+        $("#dropdownMenuButton1").css({
+          "font-weight" : "unset",
+          "color" : "rgba(255,255,255,0.5)"
+        });
+      }
+      if (to.path == "/paintings"){
+        $("#dropdownMenuButton1").css({
+          "font-weight" : "bold",
+          "color" : "rgba(255,255,255,1)"
+        });
+      }
     }
-
-  },
+} 
 };
 </script>

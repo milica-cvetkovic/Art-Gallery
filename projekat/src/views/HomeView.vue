@@ -1,6 +1,6 @@
 <template>
     <div>
-        <newest-offers-view></newest-offers-view>
+        <NewestOffersView></NewestOffersView>
     </div>
 
 </template>

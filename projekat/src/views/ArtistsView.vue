@@ -4,12 +4,6 @@
   </div>
 </template>
 
-<style scoped>
-    .row{
-        display: none;
-    }
-</style>
-
 <script>
 import $ from "jquery";
 import allArtists from "../data/artists.js";
