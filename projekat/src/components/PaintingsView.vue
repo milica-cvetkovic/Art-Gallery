@@ -1,15 +1,16 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-sm-4 card" v-for="p of paintings" :key="p.name" style="background-color : rgba(255, 255, 255, 0.7);
-                                                                              margin-left: 20px; margin-right: 20px; width: 30%">
-        <img src="../assets/images/paintings/painting1.jpg" alt="image" />
+    <div class="row" style="margin-top: 20px; display: flex; justify-content: center">
+      <div class="col-lg-4 col-sm-6 col-12" v-for="p of paintings" :key="p.name">
+        <div class="card border-0" style="background-color : rgba(255, 255, 255, 0.8); margin: auto;">
+        <img v-bind:src="'paintings/' + p.photo" alt="image" style="height: 280px; margin-top: 10px; margin-left: 10px; margin-right: 10px"/>
         <div class="card-body">
           <h5 class="card-title">{{ p.name }}</h5>
           <p class="card-text">
             {{ p.description }}
           </p>
           <a href="#" class="btn">Više</a>
+        </div>
         </div>
       </div>
     </div>
@@ -19,6 +20,10 @@
 <style scoped>
 .row {
   --bs-gutter-x: unset;
+}
+
+.card:hover{
+  transform: scale(1.05)
 }
 </style>
 
@@ -39,7 +44,7 @@ export default {
           artist: "Leonardo da Vinci",
           value: 10000,
           age: 500,
-          photo: "../assets/images/painting1.jpg",
+          photo: 'painting1.jpg',
         },
         {
           name: "The Creation od Adam",
@@ -47,7 +52,7 @@ export default {
           artist: "Michaelangelo Buonarotti",
           value: 7000,
           age: 500,
-          photo: "../assets/images/painting2.jpg",
+          photo: "painting2.jpg",
         },
         {
           name: "The Birth of Venus",
@@ -55,7 +60,7 @@ export default {
           artist: "Sandro Botticelli",
           value: 5000,
           age: 500,
-          photo: "../assets/images/painting3.jpg",
+          photo: "painting3.jpg",
         },
       ];
       localStorage.setItem("paintings", JSON.stringify(this.paintings));

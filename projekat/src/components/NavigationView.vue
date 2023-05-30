@@ -1,39 +1,70 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgba(0,0,0,0.3)">
-      <div class="container">
-        <a href="#" class="navbar-brand">
-          Galerija umetnina
-        </a>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a href="#" class="nav-link">Početna</a>
-          </li>
-          <li class="nav-item dropdown">
-             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Umetnine</a>
-              <div class="dropdown-menu">
-                <a href="#" class="dropdown-item">Slike</a>
-                <a href="#" class="dropdown-item">Skuplture</a>
-                <a href="#" class="dropdown-item">Ostalo</a>
+    <nav
+      class="navbar navbar-expand-md navbar-dark"
+      style="background-color: rgba(0, 0, 0, 0.8)"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"> Galerija umetnina </a>
+        
+        <div class="navbar-collapse collapse show" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <router-link class="text-decoration-none" id="home" to="/"
+                >Početna</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <div class="dropdown">
+                <router-link
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  class="text-decoration-none"
+                  to="/paintings"
+                  >Umetnine</router-link
+                >
+                <ul
+                  class="dropdown-menu dropdown-menu-dark"
+                  aria-labelledby="dropdownMenuButton1"
+                  style="background-color: rgba(0, 0, 0, 0.9)"
+                >
+                  <li><router-link class="dropdown-item text-decoration-none" to="/paintings">Slike</router-link></li>
+                  <li><router-link class="dropdown-item text-decoration-none" to="/sculptures">Skulpture</router-link></li>
+                  <li><router-link class="dropdown-item text-decoration-none" to="/randomstuff">Ostale Umetnine</router-link></li>
+                </ul>
               </div>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Umetnici</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Moj nalog</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">O nama</a>
-          </li>
-        </ul>
+            </li>
+            <li class="nav-item">
+              <router-link
+                class="text-decoration-none"
+                id="artists"
+                to="/artists"
+                >Umetnici</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link
+                class="text-decoration-none"
+                id="about"
+                to="/about"
+                >O nama</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link class="text-decoration-none" id="profile" to="/profile"
+                >Moj profil</router-link
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   </header>
 </template>
 
 <style scoped>
-
 .bg-img {
   height: 100vh;
   width: 100vw;
@@ -44,5 +75,29 @@
   z-index: -1;
 }
 
-
+a.router-link-exact-active {
+  color: rgb(255, 255, 255);
+}
 </style>
+
+<script>
+import $ from "jquery";
+import { useRouter } from "vue-router";
+
+export default {
+  name: "NavigationView",
+  setup() {
+    const router = useRouter();
+    console.log(router.currentRoute.value.path);
+  },
+  mounted: function () {
+    let url = window.location.href;
+    if (url.includes("artists")) {
+      $("#artists").addClass("");
+    } else {
+      $("#home").addClass("");
+    }
+
+  },
+};
+</script>

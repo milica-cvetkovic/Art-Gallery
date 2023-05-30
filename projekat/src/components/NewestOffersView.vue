@@ -67,3 +67,9 @@
     }
 
 </style>
+
+<script>
+export default {
+    name: "NewestOffersView"
+}
+</script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div>
     <NavigationView></NavigationView>
     <router-view />
     <footer-view></footer-view> 
@@ -20,19 +20,20 @@ nav {
 }
 
 nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  color: rgba(255,255,255,0.5);
+  padding-left: 20px;
+  padding-left: 20px
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  font-weight: bold;
+  color: #fff;
 }
 
-.main {
-  background-image: url("./assets/images/header-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+nav a:hover{
+  color: rgba(255,255,255, 0.8)
 }
+
 </style>
 
 <script>

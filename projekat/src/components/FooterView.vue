@@ -1,13 +1,22 @@
 <template>
-  <div class=footer>
-    <h6><i> Copyright 2023, Милица Цветковић и Жељко Урошевић, Одсек за софтверско инжењерство
-        Електротехничког факултета Универзитета у Београду</i></h6>
+  <div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="footer">
+      <h6>
+        <i>
+          Copyright 2023, Милица Цветковић и Жељко Урошевић, Одсек за софтверско
+          инжењерство Електротехничког факултета Универзитета у Београду
+        </i>
+      </h6>
+    </div>
   </div>
 </template>
 
 <style scoped>
-
-.footer{
+.footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -16,11 +25,10 @@
   background-color: black;
   width: 100%;
 }
-
 </style>
 
 <script>
 export default {
-    name: "FooterView"
-}
+  name: "FooterView",
+};
 </script>
