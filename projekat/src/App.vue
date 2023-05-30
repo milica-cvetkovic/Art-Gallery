@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <NavigationView></NavigationView>
     <router-view />
     <footer-view></footer-view> 
@@ -26,6 +26,12 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.main {
+  background-image: url("./assets/images/header-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>
 

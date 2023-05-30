@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container   " id="allArtists">
+    <div class="container" id="allArtists">
 
     </div>
   </div>
@@ -25,7 +25,11 @@ export default {
                 "padding-left" : "40px",
                 "padding-right" : "40px",
                 "margin-top" : "30px",
-                "margin-bottom" : "30px"
+                "margin-bottom" : "30px",
+                "background-color" : "rgba(255, 255, 255, 0.6)",
+                "width" : "30%",
+                "margin-left" : "15px",
+                "margin-right" : "15px"
             }).hover(function(){
                 $(this).css({
                     "transform" : "scale(1.05)"
@@ -38,13 +42,18 @@ export default {
             artistData.append(
                 $("<img></img>").addClass("card-img-top").attr("src", "artistImages/artist_" + allArtists[i % 4].id + ".jpg").css({
                 "width" : "100%",
-                "height" : "300px"
+                "height" : "300px",
+                "margin-top" : "10px"
             })
             ).append(
                 $("<div></div>").addClass("card-body").append(
-                    $("<h4></h4>").addClass("card-title").html(allArtists[i % 4].name + " " + allArtists[i % 4].surname)
+                    $("<h4></h4>").addClass("card-title").html(allArtists[i % 4].name + " " + allArtists[i % 4].surname).css({
+                        "color" : "black"
+                    })
                 ).append(
-                    $("<p></p>").addClass("card-text").html(allArtists[i % 4].biography)
+                    $("<p></p>").addClass("card-text").html(allArtists[i % 4].biography).css({
+                        "color" : "black"
+                    })
                 )
             ).append(
                     $("<a></a>").attr("href", "#").addClass("btn btn-success").html("Sva dela").css({"margin-bottom" : "10px"})

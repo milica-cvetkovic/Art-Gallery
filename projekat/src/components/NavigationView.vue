@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-sm navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgba(0,0,0,0.3)">
       <div class="container">
         <a href="#" class="navbar-brand">
           Galerija umetnina
@@ -15,9 +15,7 @@
                 <a href="#" class="dropdown-item">Slike</a>
                 <a href="#" class="dropdown-item">Skuplture</a>
                 <a href="#" class="dropdown-item">Ostalo</a>
-       
               </div>
-              
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Umetnici</a>
@@ -31,9 +29,6 @@
         </ul>
       </div>
     </nav>
-    <section class="hdr-bg">
-        <img class="bg-img" src="../assets/images/header-bg.jpg" alt="">
-    </section>
   </header>
 </template>
 
@@ -41,9 +36,8 @@
 
 .bg-img {
   height: 100vh;
-  widows: 100vw;
-  object-fit: cover;
-  filter: brightness(0.6);
+  width: 100vw;
+  filter: brightness(0.5);
   position: absolute;
   top: 0;
   left: 0;
