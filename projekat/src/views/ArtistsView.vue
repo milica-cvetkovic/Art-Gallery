@@ -6,7 +6,7 @@
 
 <script>
 import $ from "jquery";
-import allArtists from "../data/artists.js";
+import artists from "../data/artists.js";
 
 export default {
     name: "ArtistsVue",
@@ -14,7 +14,7 @@ export default {
         let row = $("<div></div>").addClass("row");
         $(document).prop("title", "Gallery Artists");
 
-        for (let i = 0; i < allArtists.length * 2; i++){
+        for (let i = 0; i < artists.length * 2; i++){
             if (i % 3 == 0){
                 row = $("<div></div>").addClass("row").css({
                     "margin-top" : "20px"
@@ -38,16 +38,16 @@ export default {
                 })
             });
             artistData.append(
-                $("<img></img>").addClass("card-img-top").attr("src", "artistImages/artist_" + allArtists[i % 4].id + ".jpg").css({
+                $("<img></img>").addClass("card-img-top").attr("src", "artistImages/artist_" + artists[i % 4].id + ".jpg").css({
                     "height" : "350px"
             })
             ).append(
                 $("<div></div>").addClass("card-body").append(
-                    $("<h4></h4>").addClass("card-title").html(allArtists[i % 4].name + " " + allArtists[i % 4].surname).css({
+                    $("<h4></h4>").addClass("card-title").html(artists[i % 4].name + " " + artists[i % 4].surname).css({
                         "color" : "black"
                     })
                 ).append( $("<div></div>").css({"height": "350px"}).append(
-                    $("<p></p>").addClass("card-text").html(allArtists[i % 4].biography).css({
+                    $("<p></p>").addClass("card-text").html(artists[i % 4].biography).css({
                         "color" : "black"
                     }))
                 )

@@ -16,14 +16,14 @@ const routes = [
     component: ArtistsView
   },
   {
-    path: "/paintings",
-    name: "PaintingsView",
-    component: PaintingsView
-  },
-  {
     path: "/profile",
     name: "ProfileView",
     component: ProfileView
+  },
+  {
+    path: "/paintings",
+    name: "PaintingsView",
+    component: PaintingsView
   }
 ]
 

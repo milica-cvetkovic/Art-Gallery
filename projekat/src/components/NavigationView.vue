@@ -82,14 +82,9 @@ a.router-link-exact-active {
 
 <script>
 import $ from "jquery";
-import { useRouter } from "vue-router";
 
 export default {
   name: "NavigationView",
-  setup() {
-    const router = useRouter();
-    console.log(router.currentRoute.value.path);
-  },
   watch:{
     $route (to, from){
       if (from.path == "/paintings"){

@@ -1,16 +1,23 @@
 <template>
-    <div>
-        <h1 style="background-color: black">aaa</h1>
-        <OffersView></OffersView>
-    </div>
+  <div>
+    <OffersView></OffersView>
+    <messages-view></messages-view>
+  </div>
 </template>
 
 <script>
+import $ from "jquery";
 import OffersView from '../components/OffersView.vue';
+import MessagesView from '../components/MessagesView.vue';
 
 export default {
   name: "ProfileView",
-  components: {OffersView}, 
+  components: {OffersView, MessagesView},
+  mounted: function () {
+    $("h1").css({
+      "display" : "bold"
+    });
+  },
   data() {
     return {
       user: "",
@@ -22,7 +29,6 @@ export default {
       localStorage.setItem("user", "elonmusk123"); // ulogovan user
     }
     this.user = localStorage.getItem("user");
-    
   },
 };
 </script>

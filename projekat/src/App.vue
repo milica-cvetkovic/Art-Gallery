@@ -62,9 +62,50 @@ export default {
           username: "elonmusk123",
           artwork: "The Birth of Venus",
           bidding: 100,
-        },
+        }
       ];
       localStorage.setItem("offers", JSON.stringify(offers));
+    }
+    if (localStorage.getItem("messages") == null){
+      let messages = [
+        {
+          id: 1,
+          username: "elonmusk123",
+          idArtist: 1,
+          text: "Moj omiljeni umetnik!"
+        },
+        {
+          id: 2,
+          username: "elonmusk123",
+          idArtist: 2,
+          text: "Jedan od najboljih svetskih umetnika!"
+        },
+        {
+          id: 3,
+          username: "elonmusk123",
+          idArtist: 3,
+          text: "Svako delo me ostavi bez daha!"
+        },
+        {
+          id: 4,
+          username: "billgates123",
+          idArtist: 4,
+          text: "Uvek lepo prenese emociju na svoja dela!"
+        },
+        {
+          id: 5,
+          username: "stevejobs123",
+          idArtist: 2,
+          text: "Ne kazu dzabe jedan od najboljih umetnika ikada!"
+        },
+        {
+          id: 6,
+          username: "billgates123",
+          idArtist: 1,
+          text: "Zadivljen sam svakim njegovim delom!!"
+        }
+      ];
+      localStorage.setItem("messages", JSON.stringify(messages));
     }
   },
 };

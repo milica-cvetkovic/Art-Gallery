@@ -1,32 +1,108 @@
 <template>
-    <div>
-        <h1>PA BRE</h1>
-        <div v-for="offer of myOffers" :key="offer.artwork">
-            <img v-bind:src="'paintings/' + offer.photo">
+  <div class="container">
+    
+    <div class="row" style="margin-top: 20px">
+      <div class="card border-0" style="background-color: rgba(255, 255, 255, 0.8); margin: auto">
+        <div class="card-body" style="display: flex; justify-content: left">
+          <h3 class="card-title">Moje ponude ({{myOffers.length}})</h3>
         </div>
+      </div>
     </div>
+    <div class="row" style="margin-top: 20px; display: flex; justify-content: center">
+      <div class="col-lg-4 col-sm-6 col-12" v-for="offer of myOffers" :key="offer.artwork">
+        <div class="card border-0" style="background-color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
+          <img v-bind:src="'paintings/' + offer.photo" alt="image" style="height: 280px;
+                                                                            margin-top: 10px;
+                                                                            margin-left: 10px;
+                                                                            margin-right: 10px;"/>
+          <div class="card-body">
+            <h5 class="card-title">{{ offer.artwork }}</h5>
+            <p class="card-text">Iznos {{ offer.bidding }}</p>
+            <button class="btn" @click="eraseOffer(offer.artwork)" style="font-weight: bold">
+              Obriši ponudu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script>
-export default {
-    name: "OffersView",
-    data(){
-        return{
-            myOffers: []
-        }
-    },
-    created(){
-        let user = localStorage.getItem("user");
-        let offers = localStorage.getItem("offers");
-        let paintings = localStorage.getItem("paintings"); // ovde treba da se doda da se trazi iz svih tipova umetnina
-        for (let i = 0; i < offers.length; i++){
-            if (offers[i].username == user){
-                this.myOffers.push(offers[i]);
-                let artwork = paintings.find(element => element.name == offers[i].artwork);
-                this.myOffers[this.myOffers.length - 1].photo = artwork.photo;
-            }
-        }
-
-    }
+<style scoped>
+.extraClass{
+    color: darkgreen
 }
+
+::v-deep .modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+::v-deep .modal-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  background: #fff;
+  width: initial !important;
+}
+.modal__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+</style>
+
+<script>
+
+export default {
+  name: "OffersView",
+  data() {
+    return {
+      myOffers: [],
+    };
+  },
+  created() {
+    let user = localStorage.getItem("user");
+    let offers = JSON.parse(localStorage.getItem("offers"));
+    let paintings = JSON.parse(localStorage.getItem("paintings")); // ovde treba da se doda da se trazi iz svih tipova umetnina
+    for (let i = 0; i < offers.length; i++) {
+      if (offers[i].username == user) {
+        this.myOffers.push(offers[i]);
+        let artwork = paintings.find(
+          (element) => element.name == offers[i].artwork
+        );
+        this.myOffers[this.myOffers.length - 1].photo = artwork.photo;
+      }
+    }
+  },
+  methods: { 
+      eraseOffer(artwork) {
+      if (!confirm("Da li ste sigurni da želite da obrišete ponudu?")) {
+        return;
+      }
+      let user = localStorage.getItem("user");
+      let offers = JSON.parse(localStorage.getItem("offers"));
+      let newOffers = offers.filter(function (offer) {
+        return (
+          offer.username != user ||
+          (offer.username == user && offer.artwork != artwork)
+        );
+      });
+      this.myOffers = this.myOffers.filter(function (offer) {
+        return (
+          offer.username != user ||
+          (offer.username == user && offer.artwork != artwork)
+        );
+      });
+      localStorage.setItem("offers", JSON.stringify(newOffers));
+    },
+  },
+};
 </script>
