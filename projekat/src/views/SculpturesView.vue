@@ -8,7 +8,7 @@
 import $ from "jquery";
 export default {
     mounted: function () {
-    $(document).prop("title", "Gallery Scultpures");
+    $(document).prop("title", "Fine Art Co Scultpures");
   }
 }
 </script>

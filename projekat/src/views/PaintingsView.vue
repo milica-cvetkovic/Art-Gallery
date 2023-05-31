@@ -71,7 +71,7 @@ export default {
     };
   },
   created() {
-    $(document).prop("title", "Gallery Paintings");
+    $(document).prop("title", "Fine Art Co Paintings");
     $(document).on('click', '.dropdown .dropdown-menu', function (e) {
       e.stopPropagation();
     });

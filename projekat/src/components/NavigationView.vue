@@ -5,7 +5,7 @@
       style="background-color: rgba(0, 0, 0, 0.8)"
     >
       <div class="container-fluid">
-        <a href="#" class="navbar-brand"> Galerija umetnina </a>
+        <router-link class=" text-decoration-none navbar-brand" to="/"> <img src="logo.png" alt="" width="30" height="24" style="margin-right: 10px"> Fine Art Co</router-link>
         
         <div class="navbar-collapse collapse show" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

@@ -12,7 +12,7 @@ export default {
   components: { NewestOffersView },
   name: "HomeView",
   mounted() {
-    $(document).prop("title", "Gallery Home");
+    $(document).prop("title", "Fine Art Co Home");
   },
 };
 </script>

@@ -12,7 +12,7 @@ export default {
     name: "ArtistsVue",
     mounted: function() {
         let row = $("<div></div>").addClass("row");
-        $(document).prop("title", "Gallery Artists");
+        $(document).prop("title", "Fine Art Co Artists");
 
         for (let i = 0; i < artists.length; i++){
             if (i % 3 == 0){

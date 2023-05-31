@@ -33,7 +33,7 @@ export default {
     name: "AboutView",
     components: {MapView},
     mounted(){
-        $(document).prop("title", "Gallery About");
+        $(document).prop("title", "Fine Art Co About");
     }
 }
 </script>

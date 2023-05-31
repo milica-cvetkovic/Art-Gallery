@@ -14,7 +14,7 @@ export default {
   name: "ProfileView",
   components: {ProfileOffersView, ProfileMessagesView},
   mounted: function () {
-    $(document).prop("title", "Gallery Profile");
+    $(document).prop("title", "Fine Art Co Profile");
   },
   data() {
     return {
