@@ -14,7 +14,7 @@ export default {
         let row = $("<div></div>").addClass("row");
         $(document).prop("title", "Gallery Artists");
 
-        for (let i = 0; i < artists.length * 2; i++){
+        for (let i = 0; i < artists.length; i++){
             if (i % 3 == 0){
                 row = $("<div></div>").addClass("row").css({
                     "margin-top" : "20px"

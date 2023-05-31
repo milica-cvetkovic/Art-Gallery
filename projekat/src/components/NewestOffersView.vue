@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="paintings/painting1.jpg" alt="">
+                        <img class="card-img-top" src="artworks/painting1.jpg" alt="">
                         <div class="card-body">
                             <a href="#"><h4>Umetnina 1</h4></a>
                             <p>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="paintings/painting1.jpg" alt="">
+                        <img class="card-img-top" src="artworks/painting1.jpg" alt="">
                         <div class="card-body">
                             <a href="#"><h4>Umetnina 1</h4></a>
                             <p>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="card">
-                        <img class="card-img-top" src="paintings/painting1.jpg" alt="">
+                        <img class="card-img-top" src="artworks/painting1.jpg" alt="">
                         <div class="card-body">
                             <a href="#"><h4>Umetnina 1</h4></a>
                             <p>

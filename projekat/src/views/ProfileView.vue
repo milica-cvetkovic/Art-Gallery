@@ -1,22 +1,20 @@
 <template>
   <div>
-    <OffersView></OffersView>
-    <messages-view></messages-view>
+    <ProfileOffersView></ProfileOffersView>
+    <profile-messages-view></profile-messages-view>
   </div>
 </template>
 
 <script>
 import $ from "jquery";
-import OffersView from '../components/OffersView.vue';
-import MessagesView from '../components/MessagesView.vue';
+import ProfileOffersView from '../components/ProfileOffersView.vue';
+import ProfileMessagesView from '../components/ProfileMessagesView.vue';
 
 export default {
   name: "ProfileView",
-  components: {OffersView, MessagesView},
+  components: {ProfileOffersView, ProfileMessagesView},
   mounted: function () {
-    $("h1").css({
-      "display" : "bold"
-    });
+    $(document).prop("title", "Gallery Profile");
   },
   data() {
     return {

@@ -11,13 +11,15 @@
     <div class="row" style="margin-top: 20px; display: flex; justify-content: center">
       <div class="col-lg-4 col-sm-6 col-12" v-for="offer of myOffers" :key="offer.artwork">
         <div class="card border-0" style="background-color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
-          <img v-bind:src="'paintings/' + offer.photo" alt="image" style="height: 280px;
+          <img v-bind:src="'artworks/' + offer.photo" alt="image" style="height: 280px;
                                                                             margin-top: 10px;
                                                                             margin-left: 10px;
                                                                             margin-right: 10px;"/>
           <div class="card-body">
             <h5 class="card-title">{{ offer.artwork }}</h5>
-            <p class="card-text">Iznos {{ offer.bidding }}</p>
+            <p class="card-text">Iznos: {{ offer.bidding }}
+                <br> Datum: {{offer.day}}.{{offer.month}}.{{offer.year}}
+            </p>
             <button class="btn" @click="eraseOffer(offer.artwork)" style="font-weight: bold">
               Obriši ponudu
             </button>
@@ -62,7 +64,7 @@
 <script>
 
 export default {
-  name: "OffersView",
+  name: "MyOffersView",
   data() {
     return {
       myOffers: [],
@@ -79,6 +81,9 @@ export default {
           (element) => element.name == offers[i].artwork
         );
         this.myOffers[this.myOffers.length - 1].photo = artwork.photo;
+        this.myOffers[this.myOffers.length - 1].day = (new Date(offers[i].date)).getDate();
+        this.myOffers[this.myOffers.length - 1].month = (new Date(offers[i].date)).getMonth() + 1;
+        this.myOffers[this.myOffers.length - 1].year = (new Date(offers[i].date)).getYear() + 1900;
       }
     }
   },

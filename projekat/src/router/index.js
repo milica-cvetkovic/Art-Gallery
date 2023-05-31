@@ -3,6 +3,8 @@ import ArtistsView from "../views/ArtistsView.vue"
 import HomeView from "../views/HomeView.vue"
 import PaintingsView from '../views/PaintingsView.vue'
 import ProfileView from '../views/ProfileView.vue'
+import AboutView from "../views/AboutView.vue"
+import SculpturesView from "../views/SculpturesView.vue"
 
 const routes = [
   {
@@ -24,6 +26,16 @@ const routes = [
     path: "/paintings",
     name: "PaintingsView",
     component: PaintingsView
+  },
+  {
+    path: "/about",
+    name: "AboutView",
+    component: AboutView
+  },
+  {
+    path: "/sculptures",
+    name: "SculpturesView",
+    component: SculpturesView
   }
 ]
 

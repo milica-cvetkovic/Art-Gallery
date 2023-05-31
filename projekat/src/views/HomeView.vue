@@ -1,14 +1,18 @@
 <template>
-    <div>
-        <NewestOffersView></NewestOffersView>
-    </div>
-
+  <div>
+    <NewestOffersView></NewestOffersView>
+  </div>
 </template>
 
 <script>
-import NewestOffersView from '../components/NewestOffersView.vue';
-  export default{
+import $ from "jquery";
+import NewestOffersView from "../components/NewestOffersView.vue";
+
+export default {
   components: { NewestOffersView },
-    name: 'HomeView'
-  }
+  name: "HomeView",
+  mounted() {
+    $(document).prop("title", "Gallery Home");
+  },
+};
 </script>

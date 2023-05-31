@@ -22,7 +22,6 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                   class="text-decoration-none"
-                  to="/paintings"
                   >Umetnine</a
                 >
                 <ul

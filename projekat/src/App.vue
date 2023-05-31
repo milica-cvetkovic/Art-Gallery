@@ -52,16 +52,19 @@ export default {
           username: "elonmusk123",
           artwork: "The Last Supper",
           bidding: 1000,
+          date: new Date("2023-04-05T12:39:00")
         },
         {
           username: "billgates123",
           artwork: "The Creation od Adam",
           bidding: 10000,
+          date: new Date("2023-05-05T14:39:00")
         },
         {
           username: "elonmusk123",
           artwork: "The Birth of Venus",
           bidding: 100,
+          date: new Date("2023-01-19T23:22:17")
         }
       ];
       localStorage.setItem("offers", JSON.stringify(offers));
