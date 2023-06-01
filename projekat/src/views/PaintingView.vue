@@ -164,6 +164,18 @@
         </button>
       </div>
     </div>
+    <div class="row" style="margin-bottom: 500px">
+      <hr>
+      <h4>
+        Ponude za ovu umetninu
+      </h4>
+      <div class="row">
+        <div class="col-3" v-for="o of offers" :key="o.id">
+          Korisnik: {{o.username}}
+          Iznos: {{o.bidding}}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -172,6 +184,7 @@
   background-color: rgba(255, 255, 255, 0.8);
   padding-right: 100px;
   padding-left: 100px;
+  padding-bottom: 1px;
 }
 
 #painting-name {
@@ -229,6 +242,8 @@ export default {
     return {
       paintings: paintings,
       painting: {},
+      offers: [],
+      user: ""
     };
   },
   created() {
@@ -236,6 +251,13 @@ export default {
     this.painting = this.paintings.find(
       (painting) => painting.id == paintingId
     );
+
+    this.user = localStorage.getItem("user");
+    this.offers = JSON.parse(localStorage.getItem("offers"));
+    let painting = this.painting;
+    this.offers = this.offers.filter(function(elem) {
+      return elem.artwork == painting.name
+    });
   },
 };
 </script>

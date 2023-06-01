@@ -39,6 +39,7 @@ nav a:hover {
 
 import FooterView from "./components/FooterView.vue";
 import NavigationView from "./components/NavigationView.vue";
+import artists from "./data/artists.js";
 
 export default {
   name: "App",
@@ -50,18 +51,21 @@ export default {
     if (localStorage.getItem("offers") == null) {
       let offers = [
         {
+          id: 1,
           username: "elonmusk123",
           artwork: "The Last Supper",
           bidding: 1000,
           date: new Date("2023-04-05T12:39:00")
         },
         {
+          id: 2,
           username: "billgates123",
-          artwork: "The Creation od Adam",
+          artwork: "The Last Supper",
           bidding: 10000,
           date: new Date("2023-05-05T14:39:00")
         },
         {
+          id: 3,
           username: "elonmusk123",
           artwork: "The Birth of Venus",
           bidding: 100,
@@ -110,6 +114,9 @@ export default {
         }
       ];
       localStorage.setItem("messages", JSON.stringify(messages));
+    }
+    if (localStorage.getItem("artists") == null){
+      localStorage.setItem("artists", artists);
     }
   }
 };

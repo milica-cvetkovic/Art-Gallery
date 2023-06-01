@@ -1,16 +1,17 @@
 <template>
   <div class="container-fluid" id="sculptures">
     <div class="row" style="display: flex; justify-content: center">
-      <div class="nput-group mt-2 mx-2" style="overflow:hidden;">
+      <div class="nput-group mt-2 mx-2" >
         <div class="dropdown" style="float:right;">
-          <button
+          <a
+          type="button"
             class="btn btn-dark text-decoration-none"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             Sortiranje
-          </button>
+          </a>
           <ul
             class="dropdown-menu dropdown-menu-dark"
             aria-labelledby="dropdownMenuButton1"
@@ -89,31 +90,32 @@
       id="sculptures-display"
       style="margin-top: 20px; display: flex; justify-content: center"
     >
-      <div class="col-lg-4 col-sm-6 col-12 sculpture-single" v-for="s of sculptures" :key="s.id">
+      <div class="col-xl-4 col-lg-6 col-12 sculpture-single" v-for="s of sculptures" :key="s.id">
         <router-link
           style="text-decoration: none; color: inherit"
           :to="/sculptures/ + s.id"
         >
           <div
             class="card border-0"
-            style="background-color: rgba(255, 255, 255, 0.8); margin: auto"
+            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 750px; margin-top: 30px"
           >
             <img
               v-bind:src="'artworks/' + s.photo"
               alt="image"
               style="
+                min-height: 280px;
                 height: 280px;
                 margin-top: 10px;
                 margin-left: 10px;
                 margin-right: 10px;
               "
             />
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ s.name }}</h5>
               <p class="card-text">
                 {{ s.description }}
               </p>
-              <a href="#" class="btn" @click="viewSculpture()">Više</a>
+              <a href="#" class="btn mt-auto" @click="viewSculpture()">Više</a>
             </div>
           </div>
         </router-link>
@@ -133,7 +135,7 @@
 
 #sculptures {
   background: rgba(255, 255, 255, 0.8);
-  margin-bottom: -99999px;
+  /* margin-bottom: -99999px; */
   padding-bottom: 200px;
 }
 
@@ -307,15 +309,15 @@ name: "SculpturesView",
           };
         }
       }
-      this.paintings.sort(comparingFunction);
+      this.sculptures.sort(comparingFunction);
     },
     search() {
-      this.paintings = JSON.parse(localStorage.getItem("paintings"));
+      this.sculptures = JSON.parse(localStorage.getItem("sculptures"));
       if (this.searchWord == "") {
         return;
       }
       let searchWordLower = this.searchWord.toLowerCase();
-      this.paintings = this.paintings.filter(function (elem) {
+      this.sculptures = this.sculptures.filter(function (elem) {
         if (
           elem.name.toLowerCase().includes(searchWordLower) ||
           elem.artist.toLowerCase().includes(searchWordLower)

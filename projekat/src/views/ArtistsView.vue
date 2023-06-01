@@ -1,64 +1,84 @@
 <template>
-  <div>
-    <div class="container" id="allArtists"></div>
+  <div class="container-fluid" id="artists">
+    <div
+      class="row"
+      id="artists-display"
+      style="display: flex; justify-content: center"
+    >
+      <div class="col-xl-4 col-lg-6 col-12 artist-single" v-for="a of artists" :key="a.id">
+          <div
+            class="card border-0"
+            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 850px; margin-top: 30px"
+          >
+            <img
+              v-bind:src="'artistImages/' + a.photo"
+              alt="image"
+              style="
+                min-height: 280px;
+                height: 280px;
+                margin-top: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+              "
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ a.name }}</h5>
+              <p class="card-text">
+                {{ a.biography }}
+              </p>
+              <a href="#" class="btn mt-auto" @click="viewSculpture()">Sva dela</a>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
 </template>
 
+<style scoped>
+.row {
+  --bs-gutter-x: unset;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+#artists {
+  background: rgba(255, 255, 255, 0.8);
+  /* margin-bottom: -99999px; */
+  padding-bottom: 200px;
+}
+
+#artists-display {
+  width: 80%;
+  margin: auto;
+}
+
+.form-outline {
+  padding-right: 5px;
+}
+
+.form-outline button {
+  padding-left: 5px;
+}
+
+.artist-single{
+  padding-right: 30px;
+}
+</style>
+
 <script>
-import $ from "jquery";
-import artists from "../data/artists.js";
 
 export default {
     name: "ArtistsVue",
-    mounted: function() {
-        let row = $("<div></div>").addClass("row");
-        $(document).prop("title", "Fine Art Co Artists");
-
-        for (let i = 0; i < artists.length; i++){
-            if (i % 3 == 0){
-                row = $("<div></div>").addClass("row").css({
-                    "margin-top" : "20px"
-                });
-                $("#allArtists").append(row);
-            }
-            let outerArtistData = $("<div></div>").addClass("col-lg-4 col-sm-12").css({
-                "float": "none",
-                "display": "table-cell",
-                "vertical-align": "top"
-            });
-            let artistData = $("<div></div>").addClass("card border-0").css({
-                "background-color" : "rgba(255, 255, 255, 0.8)"
-            }).hover(function(){
-                $(this).css({
-                    "transform" : "scale(1.05)"
-                })
-            }, function(){
-                $(this).css({
-                    "transform" : "scale(1)"
-                })
-            });
-            artistData.append(
-                $("<img></img>").addClass("card-img-top").attr("src", "artistImages/artist_" + artists[i % 4].id + ".jpg").css({
-                    "height" : "350px"
-            })
-            ).append(
-                $("<div></div>").addClass("card-body").append(
-                    $("<h4></h4>").addClass("card-title").html(artists[i % 4].name + " " + artists[i % 4].surname).css({
-                        "color" : "black"
-                    })
-                ).append( $("<div></div>").css({"height": "350px"}).append(
-                    $("<p></p>").addClass("card-text").html(artists[i % 4].biography).css({
-                        "color" : "black"
-                    }))
-                )
-            ).append(
-                    $("<a></a>").attr("href", "#").addClass("btn btn-success").html("Sva dela").css({
-                        "margin" : "10px 10px 10px 10px"
-                    })
-            );
-            outerArtistData.append(artistData);
-            row.append(outerArtistData);
+    data() {
+        return {
+            artists: []
         }
+    },
+    mounted: function() {
+        this.artists = JSON.parse(localStorage.getItem("artists"));
+        
     } 
 }
 </script>

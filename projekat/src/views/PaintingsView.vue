@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid" id="paintings">
     <div class="row" style="display: flex; justify-content: center">
-      <div class="nput-group mt-2 mx-2" style="overflow:hidden;">
+      <div class="nput-group mt-2 mx-2">
         <div class="dropdown" style="float:right;">
           <button
             class="btn btn-dark text-decoration-none"
@@ -89,31 +89,32 @@
       id="paintings-display"
       style="margin-top: 20px; display: flex; justify-content: center"
     >
-      <div class="col-lg-4 col-sm-6 col-12 paintings-single" v-for="p of paintings" :key="p.id">
+      <div class="col-xl-4 col-lg-6 col-12 paintings-single" v-for="p of paintings" :key="p.id">
         <router-link
           style="text-decoration: none; color: inherit"
           :to="/paintings/ + p.id"
         >
           <div
             class="card border-0"
-            style="background-color: rgba(255, 255, 255, 0.8); margin: auto"
+            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 750px; margin-top: 30px"
           >
             <img
               v-bind:src="'artworks/' + p.photo"
               alt="image"
               style="
+                min-height: 280px;
                 height: 280px;
                 margin-top: 10px;
                 margin-left: 10px;
                 margin-right: 10px;
               "
             />
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ p.ime }}</h5>
               <p class="card-text">
                 {{ p.opis }}
               </p>
-              <a href="#" class="btn" @click="viewPainting()">Više</a>
+              <a href="#" class="btn mt-auto" @click="viewPainting()">Više</a>
             </div>
           </div>
         </router-link>

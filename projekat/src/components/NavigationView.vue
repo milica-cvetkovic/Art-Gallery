@@ -79,7 +79,7 @@ a.router-link-exact-active {
 }
 
 nav {
-  height: 100px;
+  padding: 20px;
   font-size: 14pt;
 }
 
