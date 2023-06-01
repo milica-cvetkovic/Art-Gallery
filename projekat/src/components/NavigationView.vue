@@ -1,11 +1,11 @@
 <template>
   <header>
-    <nav
+    <nav id="navigation"
       class="navbar navbar-expand-md navbar-dark"
       style="background-color: rgba(0, 0, 0, 0.8)"
     >
       <div class="container-fluid">
-        <router-link class=" text-decoration-none navbar-brand" to="/"> <img src="logo.png" alt="" width="30" height="24" style="margin-right: 10px"> Fine Art Co</router-link>
+        <router-link class=" text-decoration-none navbar-brand" to="/"> <img src="logo.png" alt="" width="38" height="32" style="margin-right: 15px"><span id="site-name">Fine Art Co</span></router-link>
         
         <div class="navbar-collapse collapse show" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -77,6 +77,17 @@
 a.router-link-exact-active {
   color: rgb(255, 255, 255);
 }
+
+nav {
+  height: 100px;
+  font-size: 14pt;
+}
+
+#site-name{
+  font-size: 22pt;
+  font-weight: bold;
+}
+
 </style>
 
 <script>

@@ -5,6 +5,7 @@ import PaintingsView from '../views/PaintingsView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import AboutView from "../views/AboutView.vue"
 import SculpturesView from "../views/SculpturesView.vue"
+import PaintingView from '../views/PaintingView.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: "/sculptures",
     name: "SculpturesView",
     component: SculpturesView
+  },
+  {
+    path:"/paintings/:id",
+    name: "PaintingView",
+    component: PaintingView
   }
 ]
 

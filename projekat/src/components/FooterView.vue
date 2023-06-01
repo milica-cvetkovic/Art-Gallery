@@ -1,9 +1,5 @@
 <template>
   <div>
-    <br>
-    <br>
-    <br>
-    <br>
     <div class="footer">
       <h6>
         <i>
@@ -17,13 +13,18 @@
 
 <style scoped>
 .footer {
-  position: fixed;
+  position:fixed;
   left: 0;
   bottom: 0;
   color: white;
   text-align: center;
   background-color: black;
   width: 100%;
+  height: 40px;
+}
+
+h6 {
+  padding-top: 10px;
 }
 </style>
 

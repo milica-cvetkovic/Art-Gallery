@@ -36,6 +36,7 @@ nav a:hover {
 </style>
 
 <script>
+
 import FooterView from "./components/FooterView.vue";
 import NavigationView from "./components/NavigationView.vue";
 
@@ -110,6 +111,6 @@ export default {
       ];
       localStorage.setItem("messages", JSON.stringify(messages));
     }
-  },
+  }
 };
 </script>
