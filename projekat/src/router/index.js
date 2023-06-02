@@ -6,6 +6,9 @@ import ProfileView from '../views/ProfileView.vue'
 import AboutView from "../views/AboutView.vue"
 import SculpturesView from "../views/SculpturesView.vue"
 import PaintingView from '../views/PaintingView.vue'
+import SculptureView from '../views/SculptureView.vue'
+import OthersView from '../views/OthersView.vue'
+import OtherView from '../views/OtherView.vue'
 
 const routes = [
   {
@@ -42,7 +45,22 @@ const routes = [
     path:"/paintings/:id",
     name: "PaintingView",
     component: PaintingView
-  }
+  },
+  {
+    path:"/sculptures/:id",
+    name: "SculptureView",
+    component: SculptureView
+  },
+  {
+    path: "/others",
+    name: "OthersView",
+    component: OthersView
+  },
+  {
+    path:"/others/:id",
+    name: "OtherView",
+    component: OtherView
+  },
 ]
 
 const router = createRouter({

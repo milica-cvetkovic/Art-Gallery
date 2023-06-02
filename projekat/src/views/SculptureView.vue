@@ -1,328 +1,231 @@
 <template>
-  <div class="container-fluid" id="sculptures">
-    <div class="row" style="display: flex; justify-content: center">
-      <div class="nput-group mt-2 mx-2" style="overflow:hidden;">
-        <div class="dropdown" style="float:right;">
-          <button
-            class="btn btn-dark text-decoration-none"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Sortiranje
-          </button>
-          <ul
-            class="dropdown-menu dropdown-menu-dark"
-            aria-labelledby="dropdownMenuButton1"
-            style="background-color: rgba(0, 0, 0, 0.9)"
-            onclick="event.stopPropagation()"
-          >
-            <li>
-              <input
-                type="radio"
-                name="nameSort"
-                v-model="nameSort"
-                id="nameSortAsc"
-                value="nameSortAsc"
-                style="margin-left: 20px"
-              /><label for="nameSortAsc" style="margin-left: 20px"
-                >Po nazivu rastuće</label
-              >
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="nameSort"
-                v-model="nameSort"
-                id="nameSortDesc"
-                value="nameSortDesc"
-                style="margin-left: 20px"
-              /><label for="nameSortDesc" style="margin-left: 20px"
-                >Po nazivu opadajuće</label
-              >
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="artistSort"
-                v-model="artistSort"
-                id="artistSortAsc"
-                value="artistSortAsc"
-                style="margin-left: 20px"
-              /><label for="artistSortAsc" style="margin-left: 20px"
-                >Po umetniku rastuće</label
-              >
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="artistSort"
-                v-model="artistSort"
-                id="artistSortDesc"
-                value="artistSortDesc"
-                style="margin-left: 20px"
-              /><label for="artistSortDesc" style="margin-left: 20px"
-                >Po umetniku opadajuće</label
-              >
-            </li>
-            <li style="text-align: center">
-              <button class="btn btn-dark" @click="sort()">Sortiraj</button>
-            </li>
-          </ul>
-        </div>
-        <div class="form-outline w-auto" style="float:right;">
-          <input
-            type="search"
-            id="form1"
-            class="form-control-dropdown"
-            v-model="searchWord"
-          /> &nbsp;
-          <button class="btn btn-dark" for="form1" @click="search()">
-            Pretrazi
-          </button>
-        </div>
-        
+  <div class="container-fluid" id="sculpture-container">
+    <div class="row">
+     <div class="col-sm-12" style="float:left;" id="breadcrumbs">
+          Početna / Umetnine / Skulpture / {{sculpture.ime}}
+      </div>
+   </div>
+    <div class="row">
+      <div class="col-sm-12">
+         <img id="main-photo" v-bind:src="'/artworks/' + sculpture.photo + '.jpg'" alt="sculpture" style="border-radius: 8px; margin-top: 20px; margin-bottom: 20px" >
       </div>
     </div>
-    <div
-      class="row"
-      id="sculptures-display"
-      style="margin-top: 20px; display: flex; justify-content: center"
-    >
-      <div class="col-lg-4 col-sm-6 col-12 sculpture-single" v-for="p of paintings" :key="p.id">
-        <router-link
-          style="text-decoration: none; color: inherit"
-          :to="/sculptures/ + p.id"
-        >
-          <div
-            class="card border-0"
-            style="background-color: rgba(255, 255, 255, 0.8); margin: auto"
-          >
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 id="sculpture-name">{{ sculpture.ime }}</h3>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>{{ sculpture.umetnik }}</h4>
+        <div id="about-artist">
+          <p>{{ sculpture.oUmetniku }}</p>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-sm">
+        <h5><strong>Procenjena vrednost</strong>: {{ sculpture.vrednost }}</h5>
+        <h5><strong>Procenjena starost</strong>: {{ sculpture.starost }}</h5>
+      </div>
+    </div>
+    <hr />
+    <div class="row wrapper-outer">
+      <div>
+        <br>
+        <h2><strong>Galerija slika</strong></h2>
+        <br>
+      </div>
+      <div id="wrapper">
+      <div id="sculpture-gallery" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#sculpture-gallery"
+            data-bs-slide-to="0"
+            class="active"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#sculpture-gallery"
+            data-bs-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#sculpture-gallery"
+            data-bs-slide-to="2"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
             <img
-              v-bind:src="'artworks/' + p.photo"
-              alt="image"
-              style="
-                height: 280px;
-                margin-top: 10px;
-                margin-left: 10px;
-                margin-right: 10px;
-              "
+              class="gallery"
+              v-bind:src="'/artworks/' + sculpture.photo + '-1.jpg'"
+              alt=""
             />
-            <div class="card-body">
-              <h5 class="card-title">{{ p.name }}</h5>
-              <p class="card-text">
-                {{ p.description }}
-              </p>
-              <a href="#" class="btn" @click="viewSculpture()">Više</a>
-            </div>
           </div>
-        </router-link>
+          <div class="carousel-item">
+            <img
+              class="gallery"
+              v-bind:src="'/artworks/' + sculpture.photo + '-2.jpg'"
+              alt=""
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              class="gallery"
+              v-bind:src="'/artworks/' + sculpture.photo + '-3.jpg'"
+              alt=""
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#sculpture-gallery"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#sculpture-gallery"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <br>
+        <h2><strong>Galerija video</strong></h2>
+        <br>
+      </div>
+      <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube.com/embed/J5t91VaiBYY" allowfullscreen></iframe>
+      </div>
+    </div>
+    <br>
+    <div class="row" style="margin-bottom: 500px">
+      <hr>
+      <h4>
+        Ponude za ovu umetninu
+      </h4>
+      <div class="row">
+        <div class="col-3" v-for="o of offers" :key="o.id">
+          Korisnik: {{o.username}}
+          Iznos: {{o.bidding}}
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.row {
-  --bs-gutter-x: unset;
+#sculpture-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-bottom: 1px;
 }
 
-.card:hover {
-  transform: scale(1.05);
+#sculpture-name {
+  font-weight: bold;
+  font-size: 24pt;
 }
 
-#sculptures {
-  background: rgba(255, 255, 255, 0.8);
-  margin-bottom: -99999px;
-  padding-bottom: 200px;
+h3,
+h5, p {
+  text-align: left;
 }
 
-#sculptures-display {
-  width: 80%;
+h5{
+  font-size: 16pt;
+}
+
+p{
+    font-size: 14pt;
+}
+
+p{
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h4 {
+  text-align: left;
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+#about-artist {
+  text-align: left;
+  font-size: 16pt;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 2px;
+}
+
+.carousel-item img {
+  width: 90%;
+  height: 70%;
+  object-fit: contain;
+}
+
+#sculpture-gallery{
+  width: 70%;
   margin: auto;
 }
 
-.form-outline {
-  padding-right: 5px;
+#wrapper {
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.form-outline button {
-  padding-left: 5px;
+#main-photo{
+  width: 40%;
 }
 
-.sculpture-single{
-  padding-right: 30px;
+#breadcrumbs {
+  padding-top: 9px;
 }
+
 </style>
 
 <script>
-import $ from "jquery";
-import paintings from "../data/paintings.js";
+
+import sculptures from "../data/sculptures.js";
 
 export default {
-  name: "SculpturesView",
+  name: "SculptureView",
   data() {
     return {
-      paintings: [],
-      nameSort: "",
-      artistSort: "",
-      searchWord: "",
+      sculptures: sculptures,
+      sculpture: {},
+      offers: [],
+      user: ""
     };
   },
   created() {
-    $(document).prop("title", "Fine Art Co Paintings");
-    $(document).on("click", ".dropdown .dropdown-menu", function (e) {
-      e.stopPropagation();
+    let sculptureId = Number(this.$route.params.id);
+    this.sculpture = this.sculptures.find(
+      (sculpture) => sculpture.id == sculptureId
+    );
+
+    this.user = localStorage.getItem("user");
+    this.offers = JSON.parse(localStorage.getItem("offers"));
+    let sculpture = this.sculpture;
+    this.offers = this.offers.filter(function(elem) {
+      return elem.artwork == sculpture.name
     });
-    this.paintings = paintings;
-  },
-  methods: {
-    sort() {
-      let comparingFunction = null;
-      if (this.nameSort == "" && this.artistSort == "") {
-        return;
-      } else if (this.nameSort != "" && this.artistSort == "") {
-        if (this.nameSort == "nameSortAsc") {
-          comparingFunction = function (a, b) {
-            if (a.name < b.name) {
-              return -1;
-            } else if (a.name > b.name) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
-        } else {
-          comparingFunction = function (a, b) {
-            if (a.name > b.name) {
-              return -1;
-            } else if (a.name < b.name) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
-        }
-      } else if (this.nameSort == "" && this.artistSort != "") {
-        if (this.artistSort == "artistSortAsc") {
-          comparingFunction = function (a, b) {
-            if (a.artist < b.artist) {
-              return -1;
-            } else if (a.artist > b.artist) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
-        } else if (this.artistSort == "artistSortDesc") {
-          comparingFunction = function (a, b) {
-            if (a.artist > b.artist) {
-              return -1;
-            } else if (a.artist < b.artist) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
-        }
-      } else {
-        if (
-          this.nameSort == "nameSortAsc" &&
-          this.artistSort == "artistSortAsc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name < b.name) {
-              return -1;
-            } else if (a.name > b.name) {
-              return 1;
-            } else {
-              if (a.artist < b.artist) {
-                return -1;
-              } else if (a.artist > b.artist) {
-                return 1;
-              } else {
-                return 0;
-              }
-            }
-          };
-        } else if (
-          this.nameSort == "nameSortAsc" &&
-          this.artistSort == "artistSortDesc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name < b.name) {
-              return -1;
-            } else if (a.name > b.name) {
-              return 1;
-            } else {
-              if (a.artist > b.artist) {
-                return -1;
-              } else if (a.artist < b.artist) {
-                return 1;
-              } else {
-                return 0;
-              }
-            }
-          };
-        } else if (
-          this.nameSort == "nameSortDesc" &&
-          this.artistSort == "artistSortAsc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name > b.name) {
-              return -1;
-            } else if (a.name < b.name) {
-              return 1;
-            } else {
-              if (a.artist < b.artist) {
-                return -1;
-              } else if (a.artist > b.artist) {
-                return 1;
-              } else {
-                return 0;
-              }
-            }
-          };
-        } else if (
-          this.nameSort == "nameSortDesc" &&
-          this.artistSort == "artistSortDesc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name > b.name) {
-              return -1;
-            } else if (a.name < b.name) {
-              return 1;
-            } else {
-              if (a.artist > b.artist) {
-                return -1;
-              } else if (a.artist < b.artist) {
-                return 1;
-              } else {
-                return 0;
-              }
-            }
-          };
-        }
-      }
-      this.paintings.sort(comparingFunction);
-    },
-    search() {
-      this.paintings = JSON.parse(localStorage.getItem("paintings"));
-      if (this.searchWord == "") {
-        return;
-      }
-      let searchWordLower = this.searchWord.toLowerCase();
-      this.paintings = this.paintings.filter(function (elem) {
-        if (
-          elem.name.toLowerCase().includes(searchWordLower) ||
-          elem.artist.toLowerCase().includes(searchWordLower)
-        ) {
-          return true;
-        } else {
-          return false;
-        }
-      });
-    },
   },
 };
 </script>

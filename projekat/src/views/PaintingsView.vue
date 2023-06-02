@@ -81,7 +81,9 @@
             Pretrazi
           </button>
         </div>
-        
+        <div style="width:50%; float:right;">
+          Početna / Umetnine / Slike
+        </div>
       </div>
     </div>
     <div
@@ -99,7 +101,7 @@
             style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 750px; margin-top: 30px"
           >
             <img
-              v-bind:src="'artworks/' + p.photo"
+              v-bind:src="'artworks/' + p.photo + '.jpg'"
               alt="image"
               style="
                 min-height: 280px;

@@ -31,7 +31,7 @@
                 >
                   <li><router-link class="dropdown-item text-decoration-none" to="/paintings">Slike</router-link></li>
                   <li><router-link class="dropdown-item text-decoration-none" to="/sculptures">Skulpture</router-link></li>
-                  <li><router-link class="dropdown-item text-decoration-none" to="/randomstuff">Ostale Umetnine</router-link></li>
+                  <li><router-link class="dropdown-item text-decoration-none" to="/others">Ostale Umetnine</router-link></li>
                 </ul>
               </div>
             </li>
