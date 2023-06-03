@@ -179,6 +179,7 @@ export default {
       e.stopPropagation();
     });
     this.paintings = paintings;
+
   },
   methods: {
     sort() {

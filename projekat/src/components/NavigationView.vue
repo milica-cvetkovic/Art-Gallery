@@ -97,13 +97,13 @@ export default {
   name: "NavigationView",
   watch:{
     $route (to, from){
-      if (from.path == "/paintings"){
+      if (from.path.includes("/paintings") || from.path.includes("/sculptures") || from.path.includes("/others")){
         $("#dropdownMenuButton1").css({
           "font-weight" : "unset",
           "color" : "rgba(255,255,255,0.5)"
         });
       }
-      if (to.path == "/paintings"){
+      if (to.path.includes("/paintings") || to.path.includes("/sculptures") || to.path.includes("/others")){
         $("#dropdownMenuButton1").css({
           "font-weight" : "bold",
           "color" : "rgba(255,255,255,1)"

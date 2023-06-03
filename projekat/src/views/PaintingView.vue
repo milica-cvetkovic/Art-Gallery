@@ -1,15 +1,25 @@
 <template>
   <div class="container-fluid" id="painting-container">
-   <div class="row">
-     <div class="col-sm-12" style="float:left;" id="breadcrumbs">
-          <router-link to="/" style="text-decoration: none; color: gray"> Početna </router-link> / 
-          <span style="color: gray"> Umetnine </span> / <router-link to="/paintings" style="text-decoration: none; color: gray"> Slike </router-link> 
-          / {{painting.ime}}
+    <div class="row">
+      <div class="col-sm-12" style="float: left" id="breadcrumbs">
+        <router-link to="/" style="text-decoration: none; color: gray">
+          Početna
+        </router-link>
+        / <span style="color: gray"> Umetnine </span> /
+        <router-link to="/paintings" style="text-decoration: none; color: gray">
+          Slike
+        </router-link>
+        / {{ painting.ime }}
       </div>
-   </div>
+    </div>
     <div class="row">
       <div class="col-sm-12">
-        <img id="main-photo" v-bind:src="'/artworks/' + painting.photo + '.jpg'" alt="painting" style="border-radius: 8px; margin-top: 20px; margin-bottom: 20px" >
+        <img
+          id="main-photo"
+          v-bind:src="'/artworks/' + painting.photo + '.jpg'"
+          alt="painting"
+          style="border-radius: 8px; margin-top: 20px; margin-bottom: 20px"
+        />
       </div>
     </div>
     <div class="row">
@@ -36,105 +46,143 @@
     <hr />
     <div class="row wrapper-outer">
       <div>
-        <br>
+        <br />
         <h2><strong>Galerija slika</strong></h2>
-        <br>
+        <br />
       </div>
       <div id="wrapper">
-      <div id="painting-gallery" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#painting-gallery"
-            data-bs-slide-to="0"
-            class="active"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#painting-gallery"
-            data-bs-slide-to="1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#painting-gallery"
-            data-bs-slide-to="2"
-          ></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              class="gallery"
-              v-bind:src="'/artworks/' + painting.photo + '-1.jpg'"
-              alt=""
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              class="gallery"
-              v-bind:src="'/artworks/' + painting.photo + '-2.jpg'"
-              alt=""
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              class="gallery"
-              v-bind:src="'/artworks/' + painting.photo + '-3.jpg'"
-              alt=""
-            />
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#painting-gallery"
-          data-bs-slide="prev"
+        <div
+          id="painting-gallery"
+          class="carousel slide"
+          data-bs-ride="carousel"
         >
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#painting-gallery"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#painting-gallery"
+              data-bs-slide-to="0"
+              class="active"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#painting-gallery"
+              data-bs-slide-to="1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#painting-gallery"
+              data-bs-slide-to="2"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="gallery"
+                v-bind:src="'/artworks/' + painting.photo + '-1.jpg'"
+                alt=""
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="gallery"
+                v-bind:src="'/artworks/' + painting.photo + '-2.jpg'"
+                alt=""
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="gallery"
+                v-bind:src="'/artworks/' + painting.photo + '-3.jpg'"
+                alt=""
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#painting-gallery"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#painting-gallery"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
       </div>
     </div>
     <div class="row">
       <div>
-        <br>
+        <br />
         <h2><strong>Galerija video</strong></h2>
-        <br>
+        <br />
       </div>
       <div class="ratio ratio-16x9">
-        <iframe src="https://www.youtube.com/embed/J5t91VaiBYY" allowfullscreen></iframe>
+        <iframe
+          src="https://www.youtube.com/embed/J5t91VaiBYY"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
-    <br>
+    <br />
+    <div class="row" style="margin-top: 100px">
+      <hr />
+      <div class="col-sm-6">
+        <h4 style="text-align: center">Ponude za ovu umetninu</h4>
+        <div class="row">
+          <div class="col-sm-6 single" v-for="o of offers" :key="o.id">
+            <div style="margin-bottom: 5px">
+              <b>Korisnik:</b> {{ o.username }}
+            </div>
+            <div><b>Iznos:</b> {{ o.bidding }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <h4 style="text-align: center">Poruke za umetnika</h4>
+        <div class="row" style="text-align: left">
+          <div class="col-sm-12 single" v-for="m of messages" :key="m.id">
+            <div style="margin-bottom: 5px">
+              <b>Korisnik:</b> {{ m.username }}
+            </div>
+            <div><b>Tekst poruke:</b> {{ m.text }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row" style="margin-bottom: 200px; margin-top: 100px">
-      <hr>
-      <div class="col-sm-6"><h4 style="text-align: center">
-        Ponude za ovu umetninu
-      </h4>
-      <div class="row">
-        <div class="col-sm-6 single" v-for="o of offers" :key="o.id">
-          <div style="margin-bottom: 5px"><b>Korisnik:</b> {{o.username}}</div>
-          <div><b>Iznos:</b> {{o.bidding}}</div>
-        </div>
-      </div></div>
-      <div class="col-sm-6"><h4 style="text-align: center">
-        Poruke za umetnika
-      </h4>
-      <div class="row">
-        <div class="col-sm-6 single" v-for="m of messages" :key="m.id">
-          <div style="margin-bottom: 5px;"><b>Korisnik:</b> {{m.username}}</div>
-          <div><b>Tekst poruke:</b> {{m.text}}</div>
-        </div>
+      <div class="col-sm-6" style="margin-top: 20px">
+        <h4 style="text-align: center; margin-bottom: 30px">
+          Postavite ponudu
+        </h4>
+        Iznos:
+        <input type="text" v-model="bidding" id="biddingInput"/> <br />
+        <button
+          class="btn btn-dark"
+          style="margin-top: 10px"
+          @click="postOffer()"
+          for="biddingInput"
+        >
+          Postavi ponudu
+        </button>
       </div>
+      <div class="col-sm-6" style="margin-top: 20px">
+        <h4 style="text-align: center; margin-bottom: 30px">Ostavite poruku za umetnika</h4>
+        Tekst poruke:
+        <input type="text" v-model="message"/> <br />
+        <button
+          class="btn btn-dark"
+          style="margin-top: 10px"
+          @click="postMessage()"
+        >
+          Ostavi poruku
+        </button>
       </div>
-      
     </div>
   </div>
 </template>
@@ -153,23 +201,24 @@
 }
 
 h3,
-h5, p {
+h5,
+p {
   text-align: left;
 }
 
-h5{
+h5 {
   font-size: 16pt;
 }
 
-p{
-    font-size: 14pt;
+p {
+  font-size: 14pt;
 }
 
-p{
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+p {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 h4 {
@@ -191,7 +240,7 @@ h4 {
   object-fit: contain;
 }
 
-#painting-gallery{
+#painting-gallery {
   width: 70%;
   margin: auto;
 }
@@ -203,7 +252,7 @@ h4 {
   padding-bottom: 20px;
 }
 
-#main-photo{
+#main-photo {
   width: 70%;
 }
 
@@ -215,11 +264,9 @@ h4 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
 </style>
 
 <script>
-
 import paintings from "../data/paintings.js";
 
 export default {
@@ -230,7 +277,9 @@ export default {
       painting: {},
       offers: [],
       user: "",
-      messages: []
+      messages: [],
+      bidding: "",
+      message: ""
     };
   },
   created() {
@@ -242,16 +291,63 @@ export default {
     this.user = localStorage.getItem("user");
     this.offers = JSON.parse(localStorage.getItem("offers"));
     let painting = this.painting;
-    this.offers = this.offers.filter(function(elem) {
-      return elem.artwork == painting.name
+    this.offers = this.offers.filter(function (elem) {
+      return elem.artwork == painting.name;
     });
 
     this.messages = JSON.parse(localStorage.getItem("messages"));
-    this.messages = this.messages.filter(function(elem){
-      console.log(elem.artist == painting.artist);
+    this.messages = this.messages.filter(function (elem) {
       return elem.artist == painting.artist;
     });
+  },
+  methods: {
+    postOffer() {
+      let id = 0;
+      let offers = JSON.parse(localStorage.getItem("offers"));
+      for (let i = 0; i < offers.length; i++) {
+        if (offers[i].id > id) {
+          id = offers[i].id;
+        }
+      }
+      let newOffer = {
+        id: id + 1,
+        username: this.user,
+        artwork: this.painting.name,
+        bidding: this.bidding,
+        date: new Date(),
+      };
+      offers.push(newOffer);
+      localStorage.setItem("offers", JSON.stringify(offers));
+      this.offers = JSON.parse(localStorage.getItem("offers"));
+      let painting = this.painting;
+      this.offers = this.offers.filter(function (elem) {
+        return elem.artwork == painting.name;
+      });
+    },
+    postMessage(){
+      let id = 0;
+      let messages = JSON.parse(localStorage.getItem("messages"));
+      for (let i = 0; i < messages.length; i++) {
+        if (messages[i].id > id) {
+          id = messages[i].id;
+        }
+      }
+      let newMessage = {
+        id: id + 1,
+        username: this.user,
+        idArtist: this.painting.idArtist,
+        artist: this.painting.artist,
+        text: this.message
+      };
+      messages.push(newMessage);
+      localStorage.setItem("messages", JSON.stringify(messages));
+      this.messages = JSON.parse(localStorage.getItem("messages"));
+      let painting = this.painting;
+      this.messages = this.messages.filter(function (elem) {
+        return elem.artist == painting.artist;
+      });
 
+    }
   },
 };
 </script>
