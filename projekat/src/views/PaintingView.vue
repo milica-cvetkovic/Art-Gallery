@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid" id="painting-container">
+  <div v-if="verify() == 'serbian'" class="container-fluid" id="painting-container">
     <div class="row">
       <div class="col-sm-12" style="float: left" id="breadcrumbs">
         <router-link to="/" style="text-decoration: none; color: gray">
@@ -136,10 +136,10 @@
         <h4 style="text-align: center">Ponude za ovu umetninu</h4>
         <div class="row">
           <div class="col-sm-6 single" v-for="o of offers" :key="o.id">
-            <div style="margin-bottom: 5px">
+            <div class="left-label" style="margin-bottom: 5px">
               <b>Korisnik:</b> {{ o.username }}
             </div>
-            <div><b>Iznos:</b> {{ o.bidding }}</div>
+            <div class="left-label"><b>Iznos:</b> {{ o.bidding }}</div>
           </div>
         </div>
       </div>
@@ -155,8 +155,10 @@
         </div>
       </div>
     </div>
+    <hr>
     <div class="row" style="margin-bottom: 200px; margin-top: 100px">
-      <div class="col-sm-6" style="margin-top: 20px">
+      
+      <div class="col-sm-6 offers-bottom-left" style="margin-top: 20px">
         <h4 style="text-align: center; margin-bottom: 30px">
           Postavite ponudu
         </h4>
@@ -171,7 +173,7 @@
           Postavi ponudu
         </button>
       </div>
-      <div class="col-sm-6" style="margin-top: 20px">
+      <div class="col-sm-6 offers-bottom-right" style="margin-top: 20px">
         <h4 style="text-align: center; margin-bottom: 30px">Ostavite poruku za umetnika</h4>
         Tekst poruke:
         <input type="text" v-model="message"/> <br />
@@ -181,6 +183,194 @@
           @click="postMessage()"
         >
           Ostavi poruku
+        </button>
+      </div>
+    </div>
+  </div>
+  <div v-else class="container-fluid" id="painting-container">
+    <div class="row">
+      <div class="col-sm-12" style="float: left" id="breadcrumbs">
+        <router-link to="/" style="text-decoration: none; color: gray">
+          Home
+        </router-link>
+        / <span style="color: gray"> Art </span> /
+        <router-link to="/paintings" style="text-decoration: none; color: gray">
+          Painting
+        </router-link>
+        / {{ painting.name }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <img
+          id="main-photo"
+          v-bind:src="'/artworks/' + painting.photo + '.jpg'"
+          alt="painting"
+          style="border-radius: 8px; margin-top: 20px; margin-bottom: 20px"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 id="painting-name">{{ painting.name }}</h3>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>{{ painting.artist }}</h4>
+        <div id="about-artist">
+          <p>{{ painting.aboutArtist }}</p>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-sm">
+        <h5><strong>Estimated value</strong>: {{ painting.value }}</h5>
+        <h5><strong>Estimated age</strong>: {{ painting.aged }}</h5>
+      </div>
+    </div>
+    <hr />
+    <div class="row wrapper-outer">
+      <div>
+        <br />
+        <h2><strong>Photo gallery</strong></h2>
+        <br />
+      </div>
+      <div id="wrapper">
+        <div
+          id="painting-gallery"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#painting-gallery"
+              data-bs-slide-to="0"
+              class="active"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#painting-gallery"
+              data-bs-slide-to="1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#painting-gallery"
+              data-bs-slide-to="2"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="gallery"
+                v-bind:src="'/artworks/' + painting.photo + '-1.jpg'"
+                alt=""
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="gallery"
+                v-bind:src="'/artworks/' + painting.photo + '-2.jpg'"
+                alt=""
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="gallery"
+                v-bind:src="'/artworks/' + painting.photo + '-3.jpg'"
+                alt=""
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#painting-gallery"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#painting-gallery"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <br />
+        <h2><strong>Video gallery</strong></h2>
+        <br />
+      </div>
+      <div class="ratio ratio-16x9">
+        <iframe
+          src="https://www.youtube.com/embed/J5t91VaiBYY"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <br />
+    <div class="row" style="margin-top: 100px">
+      <hr />
+      <div class="col-sm-6">
+        <h4 style="text-align: center">Offers for this artwork</h4>
+        <div class="row">
+          <div class="col-sm-6 single" v-for="o of offers" :key="o.id">
+            <div class="left-label" style="margin-bottom: 5px">
+              <b>User:</b> {{ o.username }}
+            </div>
+            <div class="left-label"><b>Value:</b> {{ o.bidding }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <h4 style="text-align: center">Message for artist</h4>
+        <div class="row" style="text-align: left">
+          <div class="col-sm-12 single" v-for="m of messages" :key="m.id">
+            <div style="margin-bottom: 5px">
+              <b>User:</b> {{ m.username }}
+            </div>
+            <div><b>Message:</b> {{ m.text }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row" style="margin-bottom: 200px; margin-top: 100px">
+      
+      <div class="col-sm-6 offers-bottom-left" style="margin-top: 20px">
+        <h4 style="text-align: center; margin-bottom: 30px">
+          Leave an offer
+        </h4>
+        Value:
+        <input type="text" v-model="bidding" id="biddingInput"/> <br />
+        <button
+          class="btn btn-dark"
+          style="margin-top: 10px"
+          @click="postOffer()"
+          for="biddingInput"
+        >
+          Post offer
+        </button>
+      </div>
+      <div class="col-sm-6 offers-bottom-right" style="margin-top: 20px">
+        <h4 style="text-align: center; margin-bottom: 30px">Leave a message for the artist</h4>
+        Message:
+        <input type="text" v-model="message"/> <br />
+        <button
+          class="btn btn-dark"
+          style="margin-top: 10px"
+          @click="postMessage()"
+        >
+          Leave message
         </button>
       </div>
     </div>
@@ -264,6 +454,11 @@ h4 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.left-label {
+  text-align: left;
+}
+
 </style>
 
 <script>
@@ -347,7 +542,10 @@ export default {
         return elem.artist == painting.artist;
       });
 
-    }
+    },
+    verify(){
+    return JSON.parse(localStorage.getItem('language'));
+  }
   },
 };
 </script>

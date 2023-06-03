@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid" id="others">
+  <div v-if="verify() == 'serbian'" class="container-fluid" id="others">
     <div class="row" style="display: flex; justify-content: center">
       <div class="nput-group mt-2 mx-2">
         <div class="dropdown" style="float:right;">
@@ -118,6 +118,131 @@
                 {{ o.opis }}
               </p>
               <a href="#" class="btn mt-auto" @click="viewPainting()">Više</a>
+            </div>
+          </div>
+        </router-link>
+      </div>
+    </div>
+  </div>
+  <div v-else class="container-fluid" id="others">
+    <div class="row" style="display: flex; justify-content: center">
+      <div class="nput-group mt-2 mx-2">
+        <div class="dropdown" style="float:right;">
+          <button
+            class="btn btn-dark text-decoration-none"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Sort
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-dark"
+            aria-labelledby="dropdownMenuButton1"
+            style="background-color: rgba(0, 0, 0, 0.9)"
+            onclick="event.stopPropagation()"
+          >
+            <li>
+              <input
+                type="radio"
+                name="nameSort"
+                v-model="nameSort"
+                id="nameSortAsc"
+                value="nameSortAsc"
+                style="margin-left: 20px"
+              /><label for="nameSortAsc" style="margin-left: 20px"
+                >By name ascending</label
+              >
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="nameSort"
+                v-model="nameSort"
+                id="nameSortDesc"
+                value="nameSortDesc"
+                style="margin-left: 20px"
+              /><label for="nameSortDesc" style="margin-left: 20px"
+                >By name descending</label
+              >
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="artistSort"
+                v-model="artistSort"
+                id="artistSortAsc"
+                value="artistSortAsc"
+                style="margin-left: 20px"
+              /><label for="artistSortAsc" style="margin-left: 20px"
+                >By artist ascending</label
+              >
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="artistSort"
+                v-model="artistSort"
+                id="artistSortDesc"
+                value="artistSortDesc"
+                style="margin-left: 20px"
+              /><label for="artistSortDesc" style="margin-left: 20px"
+                >By artist descending</label
+              >
+            </li>
+            <li style="text-align: center">
+              <button class="btn btn-dark" @click="sort()">Sort</button>
+            </li>
+          </ul>
+        </div>
+        <div class="form-outline w-auto" style="float:right;">
+          <input
+            type="search"
+            id="form1"
+            class="form-control-dropdown"
+            v-model="searchWord"
+          /> &nbsp;
+          <button class="btn btn-dark" for="form1" @click="search()">
+            Search
+          </button>
+        </div>
+        <div style="width:50%; float:right;">
+          <router-link to="/" style="text-decoration: none; color: gray"> Home </router-link> / 
+          <span style="color: gray"> Art </span> / Others
+        </div>
+      </div>
+    </div>
+    <div
+      class="row"
+      id="others-display"
+      style="margin-top: 20px; display: flex; justify-content: center"
+    >
+      <div class="col-xl-4 col-lg-6 col-12 others-single" v-for="o of others" :key="o.id">
+        <router-link
+          style="text-decoration: none; color: inherit"
+          :to="/others/ + o.id"
+        >
+          <div
+            class="card border-0"
+            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 750px; margin-top: 30px"
+          >
+            <img
+              v-bind:src="'artworks/' + o.photo + '.jpg'"
+              alt="image"
+              style="
+                min-height: 280px;
+                height: 280px;
+                margin-top: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+              "
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ o.name }}</h5>
+              <p class="card-text">
+                {{ o.description }}
+              </p>
+              <a href="#" class="btn mt-auto" @click="viewPainting()">More</a>
             </div>
           </div>
         </router-link>
@@ -327,6 +452,9 @@ export default {
         }
       });
     },
+    verify(){
+    return JSON.parse(localStorage.getItem('language'));
+  }
   },
 };
 </script>
