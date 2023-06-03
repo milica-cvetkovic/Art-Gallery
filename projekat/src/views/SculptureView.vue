@@ -2,7 +2,9 @@
   <div class="container-fluid" id="sculpture-container">
     <div class="row">
      <div class="col-sm-12" style="float:left;" id="breadcrumbs">
-          Početna / Umetnine / Skulpture / {{sculpture.ime}}
+          <router-link to="/" style="text-decoration: none; color: gray"> Početna </router-link> / 
+          <span style="color: gray"> Umetnine </span> / <router-link to="/sculptures" style="text-decoration: none; color: gray"> Skulpture </router-link> 
+          / {{sculpture.ime}}
       </div>
    </div>
     <div class="row">

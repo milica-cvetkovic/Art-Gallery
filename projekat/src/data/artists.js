@@ -1,7 +1,7 @@
 const artists = [
     {
         id: 1,
-        name: "Leonardo Da Vinci",
+        name: "Leonardo da Vinci",
         biography: "Leonardo di ser Piero da Vinci (15 April 1452 - 2 May 1519) was an Italian polymath of the High Renaissance who was active as a painter, draughtsman, engineer, scientist, theorist, sculptor, and architect. Born out of wedlock to a successful notary and a lower-class woman in, or near, Vinci, he was educated in Florence by the Italian painter and sculptor Andrea del Verrocchio. He began his career in the city, but then spent much time in the service of Ludovico Sforza in Milan.",
         photo: "artist_1.jpg"
     },

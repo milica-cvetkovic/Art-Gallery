@@ -11,7 +11,7 @@
     <div class="row" style="margin-top: 20px; display: flex; justify-content: center">
       <div class="col-lg-4 col-sm-6 col-12" v-for="offer of myOffers" :key="offer.artwork">
         <div class="card border-0" style="background-color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
-          <img v-bind:src="'artworks/' + offer.photo" alt="image" style="height: 280px;
+          <img v-bind:src="'artworks/' + offer.photo + '.jpg'" alt="image" style="height: 280px;
                                                                             margin-top: 10px;
                                                                             margin-left: 10px;
                                                                             margin-right: 10px;"/>

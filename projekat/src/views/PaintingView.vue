@@ -2,7 +2,9 @@
   <div class="container-fluid" id="painting-container">
    <div class="row">
      <div class="col-sm-12" style="float:left;" id="breadcrumbs">
-          Početna / Umetnine / Slike / {{painting.ime}}
+          <router-link to="/" style="text-decoration: none; color: gray"> Početna </router-link> / 
+          <span style="color: gray"> Umetnine </span> / <router-link to="/paintings" style="text-decoration: none; color: gray"> Slike </router-link> 
+          / {{painting.ime}}
       </div>
    </div>
     <div class="row">
@@ -111,17 +113,28 @@
       </div>
     </div>
     <br>
-    <div class="row" style="margin-bottom: 500px">
+    <div class="row" style="margin-bottom: 200px; margin-top: 100px">
       <hr>
-      <h4>
+      <div class="col-sm-6"><h4 style="text-align: center">
         Ponude za ovu umetninu
       </h4>
       <div class="row">
-        <div class="col-3" v-for="o of offers" :key="o.id">
-          Korisnik: {{o.username}}
-          Iznos: {{o.bidding}}
+        <div class="col-sm-6 single" v-for="o of offers" :key="o.id">
+          <div style="margin-bottom: 5px"><b>Korisnik:</b> {{o.username}}</div>
+          <div><b>Iznos:</b> {{o.bidding}}</div>
+        </div>
+      </div></div>
+      <div class="col-sm-6"><h4 style="text-align: center">
+        Poruke za umetnika
+      </h4>
+      <div class="row">
+        <div class="col-sm-6 single" v-for="m of messages" :key="m.id">
+          <div style="margin-bottom: 5px;"><b>Korisnik:</b> {{m.username}}</div>
+          <div><b>Tekst poruke:</b> {{m.text}}</div>
         </div>
       </div>
+      </div>
+      
     </div>
   </div>
 </template>
@@ -198,6 +211,11 @@ h4 {
   padding-top: 9px;
 }
 
+.single {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 </style>
 
 <script>
@@ -211,7 +229,8 @@ export default {
       paintings: paintings,
       painting: {},
       offers: [],
-      user: ""
+      user: "",
+      messages: []
     };
   },
   created() {
@@ -226,6 +245,13 @@ export default {
     this.offers = this.offers.filter(function(elem) {
       return elem.artwork == painting.name
     });
+
+    this.messages = JSON.parse(localStorage.getItem("messages"));
+    this.messages = this.messages.filter(function(elem){
+      console.log(elem.artist == painting.artist);
+      return elem.artist == painting.artist;
+    });
+
   },
 };
 </script>

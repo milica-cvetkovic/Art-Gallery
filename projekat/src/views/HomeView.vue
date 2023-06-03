@@ -1,10 +1,8 @@
 <template>
-  <div id="home">
+  <div id="home" class="container-fluid">
     <div class="row">
-      <div class="col-sm-12">
-        <div id="title">
+      <div class="col-sm-12"  id="title">   
           <p>Fine Art Co pruža posetiocima mogućnost da istraže i saznaju više o umetničkim delima iz kolekcije galerije, kao i da postave svoje ponude i komentare. Korisnici mogu pregledati slike, skulpture i ostale umetnine i saznati više o autorima i istoriji umetnosti iz perioda renesanse.</p>
-        </div>
       </div>
     </div>
     <NewestOffersView></NewestOffersView>
@@ -30,6 +28,7 @@
 
 #title{
   background:rgba(1,1,1,0.5) ;
+  width: 100%;
 }
 
 </style>

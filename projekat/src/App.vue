@@ -80,36 +80,42 @@ export default {
           id: 1,
           username: "elonmusk123",
           idArtist: 1,
+          artist: "Leonardo da Vinci",
           text: "Moj omiljeni umetnik!"
         },
         {
           id: 2,
           username: "elonmusk123",
-          idArtist: 2,
+          idArtist: 1,
+          artist: "Leonardo da Vinci",
           text: "Jedan od najboljih svetskih umetnika!"
         },
         {
           id: 3,
           username: "elonmusk123",
-          idArtist: 3,
+          idArtist: 1,
+          artist: "Leonardo da Vinci",
           text: "Svako delo me ostavi bez daha!"
         },
         {
           id: 4,
           username: "billgates123",
           idArtist: 4,
+          artist: "Sandro Boticelli",
           text: "Uvek lepo prenese emociju na svoja dela!"
         },
         {
           id: 5,
           username: "stevejobs123",
           idArtist: 2,
+          artist: "Michelangelo Buonarotti",
           text: "Ne kazu dzabe jedan od najboljih umetnika ikada!"
         },
         {
           id: 6,
           username: "billgates123",
           idArtist: 1,
+          artist: "Leonardo da Vinci",
           text: "Zadivljen sam svakim njegovim delom!!"
         }
       ];

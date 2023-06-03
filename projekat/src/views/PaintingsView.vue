@@ -82,7 +82,8 @@
           </button>
         </div>
         <div style="width:50%; float:right;">
-          Početna / Umetnine / Slike
+          <router-link to="/" style="text-decoration: none; color: gray"> Početna </router-link> / 
+          <span style="color: gray"> Umetnine </span> / Slike
         </div>
       </div>
     </div>

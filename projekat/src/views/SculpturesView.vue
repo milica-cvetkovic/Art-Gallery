@@ -83,7 +83,8 @@
           </button>
         </div>
         <div style="width:50%; float:right;">
-          Početna / Umetnine / Skulpture
+          <router-link to="/" style="text-decoration: none; color: gray"> Početna </router-link> / 
+          <span style="color: gray"> Umetnine </span> / Skulpture
         </div>
       </div>
     </div>

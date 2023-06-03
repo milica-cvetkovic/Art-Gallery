@@ -2,7 +2,9 @@
   <div class="container-fluid" id="other-container">
    <div class="row">
      <div class="col-sm-12" style="float:left;" id="breadcrumbs">
-          Početna / Umetnine / Ostalo / {{other.ime}}
+          <router-link to="/" style="text-decoration: none; color: gray"> Početna </router-link> / 
+          <span style="color: gray"> Umetnine </span> / <router-link to="/others" style="text-decoration: none; color: gray"> Ostalo </router-link> 
+          / {{other.ime}}
       </div>
    </div>
     <div class="row">
