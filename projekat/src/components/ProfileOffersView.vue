@@ -100,7 +100,7 @@ export default {
     };
   },
   created() {
-    let user = localStorage.getItem("user");
+    let user = JSON.parse(localStorage.getItem("user"));
     let offers = JSON.parse(localStorage.getItem("offers"));
     let paintings = JSON.parse(localStorage.getItem("paintings"));
     let sculptures = JSON.parse(localStorage.getItem("sculptures"));
@@ -137,7 +137,7 @@ export default {
       if (!confirm("Da li ste sigurni da želite da obrišete ponudu?")) {
         return;
       }
-      let user = localStorage.getItem("user");
+      let user = JSON.parse(localStorage.getItem("user"));
       let offers = JSON.parse(localStorage.getItem("offers"));
       let newOffers = offers.filter(function (offer) {
         return (

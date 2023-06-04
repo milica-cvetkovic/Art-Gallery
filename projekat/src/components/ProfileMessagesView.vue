@@ -96,7 +96,7 @@ export default {
     };
   },
   created() {
-    let user = localStorage.getItem("user");
+    let user = JSON.parse(localStorage.getItem("user"));
     let messages = JSON.parse(localStorage.getItem("messages"));
     let artists = JSON.parse(localStorage.getItem("artists"));
     for (let i = 0; i < messages.length; i++) {
