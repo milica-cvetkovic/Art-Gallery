@@ -1,13 +1,31 @@
 <template>
   <div v-if="verify() == 'serbian'" class="container-fluid" id="others">
-    <div class="row" style="display: flex; justify-content: center">
-      <div class="nput-group mt-2 mx-2">
-        <div class="dropdown" style="float:right;">
+    <div class="row" style="display: flex; justify-content: right;">
+      <div class="col-sm-12 nput-group mt-2" style="margin-top: 20px">
+        <router-link to="/" style="text-decoration: none; color: gray">
+          Početna
+        </router-link>
+        / <span style="color: gray"> Umetnine </span> / Ostalo
+      </div>
+      <div class="col-sm-12" style="margin-top: 20px; text-align: center">
+        <div class="form-outline w-auto">
+          <input
+            type="search"
+            id="form1"
+            class="form-control-dropdown"
+            v-model="searchWord"
+          />
+          &nbsp;
+          <button class="btn btn-dark" for="form1" @click="search()">
+            Pretrazi
+          </button>
+          <div class="dropdown">
           <button
             class="btn btn-dark text-decoration-none"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
             aria-expanded="false"
+            style="margin-top: 10px;"
           >
             Sortiranje
           </button>
@@ -70,20 +88,6 @@
             </li>
           </ul>
         </div>
-        <div class="form-outline w-auto" style="float:right;">
-          <input
-            type="search"
-            id="form1"
-            class="form-control-dropdown"
-            v-model="searchWord"
-          /> &nbsp;
-          <button class="btn btn-dark" for="form1" @click="search()">
-            Pretrazi
-          </button>
-        </div>
-        <div style="width:50%; float:right;">
-          <router-link to="/" style="text-decoration: none; color: gray"> Početna </router-link> / 
-          <span style="color: gray"> Umetnine </span> / Ostalo
         </div>
       </div>
     </div>
@@ -125,14 +129,32 @@
     </div>
   </div>
   <div v-else class="container-fluid" id="others">
-    <div class="row" style="display: flex; justify-content: center">
-      <div class="nput-group mt-2 mx-2">
-        <div class="dropdown" style="float:right;">
+    <div class="row" style="display: flex; justify-content: right;">
+      <div class="col-sm-12 nput-group mt-2" style="margin-top: 20px">
+        <router-link to="/" style="text-decoration: none; color: gray">
+          Home
+        </router-link>
+        / <span style="color: gray"> Artworks </span> / Others
+      </div>
+      <div class="col-sm-12" style="margin-top: 20px">
+        <div class="form-outline w-auto">
+          <input
+            type="search"
+            id="form1"
+            class="form-control-dropdown"
+            v-model="searchWord"
+          />
+          &nbsp;
+          <button class="btn btn-dark" for="form1" @click="search()">
+            Search
+          </button>
+          <div class="dropdown">
           <button
             class="btn btn-dark text-decoration-none"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
             aria-expanded="false"
+            style="margin-top: 10px;"
           >
             Sort
           </button>
@@ -195,20 +217,6 @@
             </li>
           </ul>
         </div>
-        <div class="form-outline w-auto" style="float:right;">
-          <input
-            type="search"
-            id="form1"
-            class="form-control-dropdown"
-            v-model="searchWord"
-          /> &nbsp;
-          <button class="btn btn-dark" for="form1" @click="search()">
-            Search
-          </button>
-        </div>
-        <div style="width:50%; float:right;">
-          <router-link to="/" style="text-decoration: none; color: gray"> Home </router-link> / 
-          <span style="color: gray"> Art </span> / Others
         </div>
       </div>
     </div>
@@ -304,6 +312,12 @@ export default {
       e.stopPropagation();
     });
     this.others = others;
+
+    if (this.verify() == "serbian") {
+      $(document).prop("title", "Fine Art Co Ostalo");
+    } else {
+      $(document).prop("title", "Fine Art Co Others");
+    }
   },
   methods: {
     sort() {

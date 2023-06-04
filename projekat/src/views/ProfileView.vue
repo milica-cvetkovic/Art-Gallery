@@ -95,9 +95,6 @@ export default {
     };
   },
   created() {
-    if (localStorage.getItem("user") == null) {
-      localStorage.setItem("user", "elonmusk123"); // ulogovan user
-    }
     this.user = localStorage.getItem("user");
 
     if (localStorage.getItem("users") == null) {
@@ -106,10 +103,16 @@ export default {
     } else {
       this.users = JSON.parse(localStorage.getItem("users"));
     }
+
+    if (this.verify() == "serbian") {
+      $(document).prop("title", "Fine Art Co Profil");
+    } else {
+      $(document).prop("title", "Fine Art Co Profile");
+    }
   },
   methods: {
     logged() {
-      return localStorage.getItem("logged") != null;
+      return localStorage.getItem("user") != null;
     },
     login() {
       let found = false;
@@ -117,7 +120,7 @@ export default {
         if (this.username == this.users[i].username) {
           found = true;
           if (this.password == this.users[i].password) {
-            localStorage.setItem("logged", JSON.stringify(this.username));
+            localStorage.setItem("user", JSON.stringify(this.username));
             location.reload();
             return;
           } else {
@@ -160,6 +163,9 @@ export default {
       localStorage.setItem("users",JSON.stringify(this.users));
 
       localStorage.removeItem("registerRequest");
+    },
+    verify() {
+      return JSON.parse(localStorage.getItem("language"));
     },
   },
 };

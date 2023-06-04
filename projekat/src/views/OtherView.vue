@@ -330,7 +330,7 @@ h4 {
 </style>
 
 <script>
-
+import $ from "jquery";
 import others from "../data/others.js";
 
 export default {
@@ -360,9 +360,24 @@ export default {
     this.messages = this.messages.filter(function (elem) {
       return elem.artist == other.artist;
     });
+
+    if (this.verify() == "serbian") {
+      $(document).prop("title", "Fine Art Co Ostalo");
+    } else {
+      $(document).prop("title", "Fine Art Co Others");
+    }
   },
   methods: {
     postOffer() {
+      if (localStorage.getItem("user") == null){
+        if (this.verify() == "serbian"){
+          alert("Niste ulogovani.");
+        }
+        else {
+          alert("You are not logged in.");
+        }
+        return;
+      }
       let id = 0;
       let offers = JSON.parse(localStorage.getItem("offers"));
       for (let i = 0; i < offers.length; i++) {
@@ -386,6 +401,15 @@ export default {
       });
     },
     postMessage(){
+      if (localStorage.getItem("user") == null){
+        if (this.verify() == "serbian"){
+          alert("Niste ulogovani.");
+        }
+        else {
+          alert("You are not logged in.");
+        }
+        return;
+      }
       let id = 0;
       let messages = JSON.parse(localStorage.getItem("messages"));
       for (let i = 0; i < messages.length; i++) {

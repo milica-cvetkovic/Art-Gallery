@@ -1,20 +1,38 @@
 <template>
   <div v-if="verify() == 'serbian'" class="container-fluid" id="paintings">
-    <div class="row" style="display: flex; justify-content: center">
-      <div class="nput-group mt-2 mx-2">
-        <div class="dropdown" style="float:right;">
+    <div class="row" style="display: flex; justify-content: right;">
+      <div class="col-sm-12 nput-group mt-2" style="margin-top: 20px">
+        <router-link to="/" style="text-decoration: none; color: gray">
+          Početna
+        </router-link>
+        / <span style="color: gray"> Umetnine </span> / Slike
+      </div>
+      <div class="col-sm-12" style="margin-top: 20px; text-align: center">
+        <div class="form-outline w-auto">
+          <input
+            type="search"
+            id="form1"
+            class="form-control-dropdown"
+            v-model="searchWord"
+          />
+          &nbsp;
+          <button class="btn btn-dark" for="form1" @click="search()">
+            Pretrazi
+          </button>
+          <div class="dropdown">
           <button
             class="btn btn-dark text-decoration-none"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
             aria-expanded="false"
+            style="margin-top: 10px;"
           >
             Sortiranje
           </button>
           <ul
             class="dropdown-menu dropdown-menu-dark"
             aria-labelledby="dropdownMenuButton1"
-            style="background-color: rgba(0, 0, 0, 0.9)"
+            style="background-color: rgba(0, 0, 0, 0.9);"
             onclick="event.stopPropagation()"
           >
             <li>
@@ -70,20 +88,6 @@
             </li>
           </ul>
         </div>
-        <div class="form-outline w-auto" style="float:right;">
-          <input
-            type="search"
-            id="form1"
-            class="form-control-dropdown"
-            v-model="searchWord"
-          /> &nbsp;
-          <button class="btn btn-dark" for="form1" @click="search()">
-            Pretrazi
-          </button>
-        </div>
-        <div style="width:50%; float:right;">
-          <router-link to="/" style="text-decoration: none; color: gray"> Početna </router-link> / 
-          <span style="color: gray"> Umetnine </span> / Slike
         </div>
       </div>
     </div>
@@ -92,14 +96,23 @@
       id="paintings-display"
       style="margin-top: 20px; display: flex; justify-content: center"
     >
-      <div class="col-xl-4 col-lg-6 col-12 paintings-single" v-for="p of paintings" :key="p.id">
+      <div
+        class="col-xl-4 col-lg-6 col-12 paintings-single"
+        v-for="p of paintings"
+        :key="p.id"
+      >
         <router-link
           style="text-decoration: none; color: inherit"
           :to="/paintings/ + p.id"
         >
           <div
             class="card border-0"
-            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 750px; margin-top: 30px"
+            style="
+              background-color: rgba(255, 255, 255, 0.8);
+              margin: auto;
+              height: 750px;
+              margin-top: 30px;
+            "
           >
             <img
               v-bind:src="'artworks/' + p.photo + '.jpg'"
@@ -125,14 +138,32 @@
     </div>
   </div>
   <div v-else class="container-fluid" id="paintings">
-    <div class="row" style="display: flex; justify-content: center">
-      <div class="nput-group mt-2 mx-2">
-        <div class="dropdown" style="float:right;">
+    <div class="row" style="display: flex; justify-content: right;">
+      <div class="col-sm-12 nput-group mt-2" style="margin-top: 20px">
+        <router-link to="/" style="text-decoration: none; color: gray">
+          Home
+        </router-link>
+        / <span style="color: gray"> Artworks </span> / Paintings
+      </div>
+      <div class="col-sm-12" style="margin-top: 20px">
+        <div class="form-outline w-auto">
+          <input
+            type="search"
+            id="form1"
+            class="form-control-dropdown"
+            v-model="searchWord"
+          />
+          &nbsp;
+          <button class="btn btn-dark" for="form1" @click="search()">
+            Search
+          </button>
+          <div class="dropdown">
           <button
             class="btn btn-dark text-decoration-none"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
             aria-expanded="false"
+            style="margin-top: 10px;"
           >
             Sort
           </button>
@@ -195,20 +226,6 @@
             </li>
           </ul>
         </div>
-        <div class="form-outline w-auto" style="float:right;">
-          <input
-            type="search"
-            id="form1"
-            class="form-control-dropdown"
-            v-model="searchWord"
-          /> &nbsp;
-          <button class="btn btn-dark" for="form1" @click="search()">
-            Search
-          </button>
-        </div>
-        <div style="width:50%; float:right;">
-          <router-link to="/" style="text-decoration: none; color: gray"> Home </router-link> / 
-          <span style="color: gray"> Art </span> / Paintings
         </div>
       </div>
     </div>
@@ -217,20 +234,30 @@
       id="paintings-display"
       style="margin-top: 20px; display: flex; justify-content: center"
     >
-      <div class="col-xl-4 col-lg-6 col-12 paintings-single" v-for="p of paintings" :key="p.id">
+      <div
+        class="col-xl-4 col-lg-6 col-12 paintings-single"
+        v-for="p of paintings"
+        :key="p.id"
+      >
         <router-link
           style="text-decoration: none; color: inherit"
           :to="/paintings/ + p.id"
         >
           <div
             class="card border-0"
-            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 750px; margin-top: 30px"
+            style="
+              background-color: rgba(255, 255, 255, 0.8);
+              margin: auto;
+              height: 750px;
+              margin-top: 30px;
+            "
           >
             <img
               v-bind:src="'artworks/' + p.photo + '.jpg'"
               alt="image"
               style="
                 min-height: 280px;
+                max-width: 280px
                 height: 280px;
                 margin-top: 10px;
                 margin-left: 10px;
@@ -279,7 +306,7 @@
   padding-left: 5px;
 }
 
-.paintings-single{
+.paintings-single {
   padding-right: 30px;
 }
 </style>
@@ -305,6 +332,11 @@ export default {
     });
     this.paintings = paintings;
 
+    if (this.verify() == "serbian") {
+      $(document).prop("title", "Fine Art Co Slike");
+    } else {
+      $(document).prop("title", "Fine Art Co Paintings");
+    }
   },
   methods: {
     sort() {
@@ -453,9 +485,9 @@ export default {
         }
       });
     },
-    verify(){
-    return JSON.parse(localStorage.getItem('language'));
-  }
+    verify() {
+      return JSON.parse(localStorage.getItem("language"));
+    },
   },
 };
 </script>

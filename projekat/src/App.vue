@@ -45,9 +45,6 @@ export default {
   name: "App",
   components: { NavigationView, FooterView },
   created() {
-    if (localStorage.getItem("user") == null) {
-      localStorage.setItem("user", "elonmusk123"); // ulogovan user
-    }
     if (localStorage.getItem("offers") == null) {
       let offers = [
         {

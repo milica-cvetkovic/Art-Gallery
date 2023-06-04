@@ -49,7 +49,11 @@ export default {
   components: { NewestOffersView },
   name: "HomeView",
   mounted() {
-    $(document).prop("title", "Fine Art Co Home");
+    if (this.verify() == "serbian") {
+      $(document).prop("title", "Fine Art Co Početna");
+    } else {
+      $(document).prop("title", "Fine Art Co Home");
+    }
   },
   methods:{
     verify(){

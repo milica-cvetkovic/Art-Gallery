@@ -1,5 +1,9 @@
 <template>
-  <div v-if="verify() == 'serbian'" class="container-fluid" id="painting-container">
+  <div
+    v-if="verify() == 'serbian'"
+    class="container-fluid"
+    id="painting-container"
+  >
     <div class="row">
       <div class="col-sm-12" style="float: left" id="breadcrumbs">
         <router-link to="/" style="text-decoration: none; color: gray">
@@ -155,15 +159,14 @@
         </div>
       </div>
     </div>
-    <hr>
+    <hr />
     <div class="row" style="margin-bottom: 200px; margin-top: 100px">
-      
       <div class="col-sm-6 offers-bottom-left" style="margin-top: 20px">
         <h4 style="text-align: center; margin-bottom: 30px">
           Postavite ponudu
         </h4>
         Iznos:
-        <input type="text" v-model="bidding" id="biddingInput"/> <br />
+        <input type="text" v-model="bidding" id="biddingInput" /> <br />
         <button
           class="btn btn-dark"
           style="margin-top: 10px"
@@ -174,9 +177,11 @@
         </button>
       </div>
       <div class="col-sm-6 offers-bottom-right" style="margin-top: 20px">
-        <h4 style="text-align: center; margin-bottom: 30px">Ostavite poruku za umetnika</h4>
+        <h4 style="text-align: center; margin-bottom: 30px">
+          Ostavite poruku za umetnika
+        </h4>
         Tekst poruke:
-        <input type="text" v-model="message"/> <br />
+        <input type="text" v-model="message" /> <br />
         <button
           class="btn btn-dark"
           style="margin-top: 10px"
@@ -335,23 +340,18 @@
         <h4 style="text-align: center">Message for artist</h4>
         <div class="row" style="text-align: left">
           <div class="col-sm-12 single" v-for="m of messages" :key="m.id">
-            <div style="margin-bottom: 5px">
-              <b>User:</b> {{ m.username }}
-            </div>
+            <div style="margin-bottom: 5px"><b>User:</b> {{ m.username }}</div>
             <div><b>Message:</b> {{ m.text }}</div>
           </div>
         </div>
       </div>
     </div>
-    <hr>
+    <hr />
     <div class="row" style="margin-bottom: 200px; margin-top: 100px">
-      
       <div class="col-sm-6 offers-bottom-left" style="margin-top: 20px">
-        <h4 style="text-align: center; margin-bottom: 30px">
-          Leave an offer
-        </h4>
+        <h4 style="text-align: center; margin-bottom: 30px">Leave an offer</h4>
         Value:
-        <input type="text" v-model="bidding" id="biddingInput"/> <br />
+        <input type="text" v-model="bidding" id="biddingInput" /> <br />
         <button
           class="btn btn-dark"
           style="margin-top: 10px"
@@ -362,9 +362,11 @@
         </button>
       </div>
       <div class="col-sm-6 offers-bottom-right" style="margin-top: 20px">
-        <h4 style="text-align: center; margin-bottom: 30px">Leave a message for the artist</h4>
+        <h4 style="text-align: center; margin-bottom: 30px">
+          Leave a message for the artist
+        </h4>
         Message:
-        <input type="text" v-model="message"/> <br />
+        <input type="text" v-model="message" /> <br />
         <button
           class="btn btn-dark"
           style="margin-top: 10px"
@@ -458,10 +460,10 @@ h4 {
 .left-label {
   text-align: left;
 }
-
 </style>
 
 <script>
+import $ from "jquery";
 import paintings from "../data/paintings.js";
 
 export default {
@@ -474,7 +476,7 @@ export default {
       user: "",
       messages: [],
       bidding: "",
-      message: ""
+      message: "",
     };
   },
   created() {
@@ -494,9 +496,23 @@ export default {
     this.messages = this.messages.filter(function (elem) {
       return elem.artist == painting.artist;
     });
+
+    if (this.verify() == "serbian") {
+      $(document).prop("title", "Fine Art Co Slike");
+    } else {
+      $(document).prop("title", "Fine Art Co Paintings");
+    }
   },
   methods: {
     postOffer() {
+      if (localStorage.getItem("user") == null) {
+        if (this.verify() == "serbian") {
+          alert("Niste ulogovani.");
+        } else {
+          alert("You are not logged in.");
+        }
+        return;
+      }
       let id = 0;
       let offers = JSON.parse(localStorage.getItem("offers"));
       for (let i = 0; i < offers.length; i++) {
@@ -519,7 +535,15 @@ export default {
         return elem.artwork == painting.name;
       });
     },
-    postMessage(){
+    postMessage() {
+      if (localStorage.getItem("user") == null) {
+        if (this.verify() == "serbian") {
+          alert("Niste ulogovani.");
+        } else {
+          alert("You are not logged in.");
+        }
+        return;
+      }
       let id = 0;
       let messages = JSON.parse(localStorage.getItem("messages"));
       for (let i = 0; i < messages.length; i++) {
@@ -532,7 +556,7 @@ export default {
         username: this.user,
         idArtist: this.painting.idArtist,
         artist: this.painting.artist,
-        text: this.message
+        text: this.message,
       };
       messages.push(newMessage);
       localStorage.setItem("messages", JSON.stringify(messages));
@@ -541,11 +565,10 @@ export default {
       this.messages = this.messages.filter(function (elem) {
         return elem.artist == painting.artist;
       });
-
     },
-    verify(){
-    return JSON.parse(localStorage.getItem('language'));
-  }
+    verify() {
+      return JSON.parse(localStorage.getItem("language"));
+    },
   },
 };
 </script>
