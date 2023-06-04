@@ -1,12 +1,12 @@
 <template>
-  <div
+  <div v-if="verify() == 'serbian'"
     class="container-fluid"
     id="banner"
     style="jusify-content: center; min-width: 100vw; margin-left: -30px"
   >
     <div class="row">
       <div class="col-12">
-        <h1>Partneri</h1>
+        <h1><strong>Partneri</strong></h1>
       </div>
     </div>
     <div
@@ -24,10 +24,10 @@
             class="card-img-top"
             src="/museums/national-museum-belgrade.jpg"
             alt=""
-            style="min-height: 200px; height: 200px"
+            style="min-height: 200px; height: 200px; object-fit: cover; object-position: 20% 20%;"
           />
           <div class="card-body">
-            <h4>Narodni muzej Srbije</h4>
+            <h4><strong>Narodni muzej Srbije</strong></h4>
           </div>
         </div>
         </a>
@@ -38,10 +38,10 @@
             class="card-img-top"
             src="/museums/museum-prado.jpg"
             alt=""
-            style="min-height: 200px; height: 200px"
+            style="min-height: 200px; height: 200px; object-fit: cover; object-position: 20% 20%;"
           />
           <div class="card-body">
-            <h4>Muzej Prado</h4>
+            <h4><strong>Muzej Prado</strong></h4>
           </div>
         </div>
         </a>
@@ -52,10 +52,72 @@
             class="card-img-top"
             src="/museums/louvre.jpg"
             alt=""
-            style="min-height: 200px; height: 200px"
+            style="min-height: 200px; height: 200px; object-fit: cover; object-position: 20% 20%;"
           />
           <div class="card-body">
-            <h4>Muzej Luvr</h4>
+            <h4><strong>Muzej Luvr</strong></h4>
+          </div>
+        </div></a>
+      </div>
+    </div>
+  </div>
+    <div v-else
+    class="container-fluid"
+    id="banner"
+    style="jusify-content: center; min-width: 100vw; margin-left: -30px"
+  >
+    <div class="row">
+      <div class="col-12">
+        <h1><strong>Partners</strong></h1>
+      </div>
+    </div>
+    <div
+      class="row"
+      style="
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-left: 10px;
+      "
+    >
+      <div class="col-md-4 col-12">
+        <a href="https://www.narodnimuzej.rs/posetite-nas/?lang=en"><div class="card border-0 banner-card">
+          <img
+            class="card-img-top"
+            src="/museums/national-museum-belgrade.jpg"
+            alt=""
+            style="min-height: 200px; height: 200px; object-fit: cover; object-position: 20% 20%;"
+          />
+          <div class="card-body">
+            <h4><strong>National Museum of Serbia</strong></h4>
+          </div>
+        </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-12">
+        <a href="https://www.museodelprado.es/en"><div class="card border-0 banner-card">
+          <img
+            class="card-img-top"
+            src="/museums/museum-prado.jpg"
+            alt=""
+            style="min-height: 200px; height: 200px; object-fit: cover; object-position: 20% 20%;"
+          />
+          <div class="card-body">
+            <h4><strong>Prado Museum</strong></h4>
+          </div>
+        </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-12">
+        <a href="https://www.louvre.fr/en"><div class="card border-0 banner-card">
+          <img
+            class="card-img-top"
+            src="/museums/louvre.jpg"
+            alt=""
+            style="min-height: 200px; height: 200px; object-fit: cover; object-position: 20% 20%;"
+          />
+          <div class="card-body">
+            <h4><strong>Louvre Museum</strong></h4>
           </div>
         </div></a>
       </div>

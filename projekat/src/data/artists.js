@@ -6,6 +6,8 @@ const artists = [
         photo: "artist_1.jpg",
         listArtworks: "LeonardoDaVinciEnglish.pdf",
         spisakDela: "LeonardoDaVinciSerbian.pdf",
+        ime: "Leonardo da Vinči",
+        opis: "Leonardo di ser Pjero da Vinči (ital. Leonardo di ser Piero da Vinci, Vinči, 15. april 1452 — Amboaz, 2. maj 1519), poznat kao Leonardo da Vinči, bio je italijanski renesansni arhitekta, pronalazač, inženjer, vajar i slikar."
     },
     {
         id: 2,
@@ -14,6 +16,8 @@ const artists = [
         photo: "artist_2.jpg",
         listArtworks: "MichelangeloBuonarottiEnglish.pdf",
         spisakDela: "MichelangeloBuonarottiSerbian.pdf",
+        ime: "Mikelanđelo Buonaroti",
+        opis: "Mikelanđelo di Lodoviko Buonaroti Simoni (ital. Michelangelo di Lodovico Buonarroti Simoni; Kapreze, 6. mart 1475 — Rim, 18. februar 1564) bio je italijanski renesansni vajar, slikar, arhitekta i pesnik, jedan od najznamenitijih i najuticajnijih umjetnika istorije evropske umjetnosti."
     },
     {
         id: 4,
@@ -22,6 +26,8 @@ const artists = [
         photo: "artist_4.jpg",
         listArtworks: "SandroBoticelliEnglish.pdf",
         spisakDela: "SandroBoticelliSerbian.pdf",
+        ime: "Sandro Botičeli",
+        opis: "Sandro Botičeli (ital. Sandro Botticelli), pravo ime Alesandro Marijano Filipepi (ital. Alessandro Mariano Filipepi), rođen je u Firenci 1. marta 1445, a umro 17. maja 1510. Bio je italijanski slikar firentinske škole ranog renesansnog slikarstva."
     },
     {
         id: 5,
@@ -30,6 +36,8 @@ const artists = [
         photo: "artist_5.jpg",
         listArtworks: "GianLorenzoEnglish.pdf",
         spisakDela: "GianLorenzoSerbian.pdf",
+        ime: "Đovani Lorenco Bernini",
+        opis: "Đovani Lorenco Bernini (ital. Giovanni Lorenzo Bernini; Napulj, 7. decembar 1598 — Rim, 28. novembar 1680) je bio italijanski barokni umetnik, vajar i značajan predstavnik baroka u arhitekturi Rima."
     },
     {
         id: 6,
@@ -38,6 +46,8 @@ const artists = [
         photo: "artist_6.jpg",
         listArtworks: "BenvenutoCelliniEnglish.pdf",
         spisakDela: "BenvenutoCelliniSerbian.pdf",
+        ime: "Benvenuto Čelini",
+        opis: "Benvenuto Čelini (ital. Benvenuto Cellini; Firenca, 1. novembar 1500 — Firenca, 13. februar 1571) bio je italijanski vajar, zlatar, pisac renesanse, muzičar i vojnik."
     },
     {
         id: 7,
@@ -46,6 +56,8 @@ const artists = [
         photo: "artist_7.jpg",
         listArtworks: "AlbrechtDurerEnglish.pdf",
         spisakDela: "AlbrechtDurerSerbian.pdf",
+        ime: "Albreht Direr",
+        opis:"Albreht Direr (nem. Albrecht Dürer; Nirnberg, 21. maj 1471. — Nirnberg, 6. april 1528) bio je nemački renesansni slikar, grafičar i teoretičar umetnosti. Bio je jedan od najvećih majstora umetnosti u doba humanizma i reformacije."
     },
     {
         id: 8,
@@ -54,6 +66,8 @@ const artists = [
         photo: "artist_8.jpg",
         listArtworks: "DanteAlighieriEnglish.pdf",
         spisakDela: "DanteAlighieriSerbian.pdf",
+        ime: "Dante Aligijeri",
+        opis: "Dante Aligijeri (maj/jun 1265 — Ravena, 14. septembar 1321) bio je najveći italijanski pesnik kasnog srednjeg veka. Njegovo najveće delo, Božanstvena komedija, prvenstveno objavljena pod nazivom Komedija, a kasnije je Bokačo dodao epitet „božanstvena“, predstavlja kulminaciju srednjovekovnog pogleda na svet i osnovu modernog italijanskog jezika."
     },
 ];
 

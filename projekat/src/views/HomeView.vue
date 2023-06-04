@@ -11,6 +11,7 @@
         </p>
       </div>
     </div>
+    <NewestArtworkComponent></NewestArtworkComponent>
     <NewestOffersView></NewestOffersView>
     <banner-home-view></banner-home-view>
   </div>
@@ -27,6 +28,7 @@
         </p>
       </div>
     </div>
+    <NewestArtworkComponent></NewestArtworkComponent>
     <NewestOffersView></NewestOffersView>
     <banner-home-view></banner-home-view>
   </div>
@@ -60,9 +62,10 @@
 import $ from "jquery";
 import NewestOffersView from "../components/NewestOffersView.vue";
 import BannerHomeView from '../components/BannerHomeView.vue';
+import NewestArtworkComponent from '../components/NewestArtworkComponent.vue';
 
 export default {
-  components: { NewestOffersView, BannerHomeView },
+  components: { NewestOffersView, BannerHomeView, NewestArtworkComponent},
   name: "HomeView",
   mounted() {
     if (this.verify() == "serbian") {

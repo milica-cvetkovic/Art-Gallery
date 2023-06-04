@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div v-if="verify() == 'serbian'" class="container">
     
     <div class="row" style="margin-top: 20px">
       <div class="card border-0" style="background-color: rgba(255, 255, 255, 0.8); margin: auto">
@@ -20,6 +20,33 @@
             <p class="card-text"><i>{{ message.text }}</i></p>
             <button class="btn" @click="eraseMessage(message.id)" style="font-weight: bold">
               Obriši poruku
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div v-else class="container">
+    
+    <div class="row" style="margin-top: 20px">
+      <div class="card border-0" style="background-color: rgba(255, 255, 255, 0.8); margin: auto">
+        <div class="card-body" style="display: flex; justify-content: left">
+          <h3 class="card-title">My messages ({{myMessages.length}})</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 20px; display: flex; justify-content: center">
+      <div class="col-lg-4 col-sm-6 col-12" v-for="message of myMessages" :key="message.id">
+        <div class="card border-0" style="background-color: rgba(255, 255, 255, 0.8); margin-bottom: 20px;">
+          <img v-bind:src="'artistImages/' + message.photo" alt="image" style="height: 280px;
+                                                                            margin-top: 10px;
+                                                                            margin-left: 10px;
+                                                                            margin-right: 10px;"/>
+          <div class="card-body">
+            <h5 class="card-title">{{ message.artist }}</h5>
+            <p class="card-text"><i>{{ message.text }}</i></p>
+            <button class="btn" @click="eraseMessage(message.id)" style="font-weight: bold">
+              Delete message
             </button>
           </div>
         </div>
@@ -96,6 +123,9 @@ export default {
         return message.id != id;
       });
       localStorage.setItem("messages", JSON.stringify(newMessages));
+    },
+    verify() {
+      return JSON.parse(localStorage.getItem("language"));
     },
   },
 };

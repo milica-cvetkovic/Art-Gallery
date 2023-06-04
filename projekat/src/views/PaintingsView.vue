@@ -110,11 +110,12 @@
             style="
               background-color: rgba(255, 255, 255, 0.8);
               margin: auto;
-              height: 750px;
+              height: 100%;
               margin-top: 30px;
             "
           >
             <img
+              class="card-img"
               v-bind:src="'artworks/' + p.photo + '.jpg'"
               alt="image"
               style="
@@ -130,7 +131,6 @@
               <p class="card-text">
                 {{ p.opis }}
               </p>
-              <a href="#" class="btn mt-auto" @click="viewPainting()">Više</a>
             </div>
           </div>
         </router-link>
@@ -248,7 +248,7 @@
             style="
               background-color: rgba(255, 255, 255, 0.8);
               margin: auto;
-              height: 750px;
+              height: 100%;
               margin-top: 30px;
             "
           >
@@ -269,7 +269,6 @@
               <p class="card-text">
                 {{ p.description }}
               </p>
-              <a href="#" class="btn mt-auto">More</a>
             </div>
           </div>
         </router-link>
@@ -289,7 +288,7 @@
 
 #paintings {
   background: rgba(255, 255, 255, 0.8);
-  margin-bottom: -99999px;
+
   padding-bottom: 200px;
   min-height: 100vh;
 }
@@ -309,6 +308,11 @@
 
 .paintings-single {
   padding-right: 30px;
+}
+
+.card-img {
+      object-fit: cover;
+    object-position: 20% 20%;
 }
 </style>
 

@@ -103,7 +103,7 @@
         >
           <div
             class="card border-0"
-            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 750px; margin-top: 30px"
+            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 100%; margin-top: 30px"
           >
             <img
               v-bind:src="'artworks/' + o.photo + '.jpg'"
@@ -121,7 +121,6 @@
               <p class="card-text">
                 {{ o.opis }}
               </p>
-              <a href="#" class="btn mt-auto" @click="viewPainting()">Više</a>
             </div>
           </div>
         </router-link>
@@ -232,9 +231,9 @@
         >
           <div
             class="card border-0"
-            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 750px; margin-top: 30px"
+            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 100%; margin-top: 30px"
           >
-            <img
+            <img class="card-img"
               v-bind:src="'artworks/' + o.photo + '.jpg'"
               alt="image"
               style="
@@ -250,7 +249,6 @@
               <p class="card-text">
                 {{ o.description }}
               </p>
-              <a href="#" class="btn mt-auto" @click="viewPainting()">More</a>
             </div>
           </div>
         </router-link>
@@ -270,7 +268,6 @@
 
 #others {
   background: rgba(255, 255, 255, 0.8);
-  margin-bottom: -99999px;
   padding-bottom: 200px;
   min-height: 100vh;
 }
@@ -290,6 +287,11 @@
 
 .others-single{
   padding-right: 30px;
+}
+
+.card-img {
+      object-fit: cover;
+    object-position: 20% 20%;
 }
 </style>
 

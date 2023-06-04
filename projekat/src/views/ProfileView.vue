@@ -43,16 +43,16 @@
 </div>
 </div>
 
-<div v-else>
+<div v-else class="rest">
   <ProfileOffersView></ProfileOffersView>
   <profile-messages-view></profile-messages-view>
+  <button type="button" class="btn btn-dark btn-block mb-3" @click="logout()">Log out</button>
 </div>
 </template>
 
 <style scoped>
 .login {
   background: rgba(255, 255, 255, 0.8);
-  margin-bottom: -99999px;
   padding-bottom: 200px;
   padding-top: 150px;
 }
@@ -65,7 +65,10 @@
 #form-div, #register-div {
   background: rgba(255, 255, 255, 0.8);
   padding-top: 30px;
-  min-height: 100vh;
+}
+
+#register-div, .rest{
+    min-height: 100vh;
 }
 
 </style>
@@ -93,7 +96,6 @@ export default {
       username: "",
       password: "",
       users: [],
-      error: "",
       Rusername: '',
       Rpassword: '',
       RrepeatPassword: ''
@@ -172,6 +174,10 @@ export default {
     verify() {
       return JSON.parse(localStorage.getItem("language"));
     },
+    logout(){
+      localStorage.removeItem("user");
+      location.reload();
+    }
   },
 };
 </script>

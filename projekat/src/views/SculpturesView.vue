@@ -103,9 +103,10 @@
         >
           <div
             class="card border-0"
-            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 750px; margin-top: 30px"
+            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 100%; margin-top: 30px"
           >
             <img
+            class="card-img"
               v-bind:src="'artworks/' + s.photo + '.jpg'"
               alt="image"
               style="
@@ -121,7 +122,6 @@
               <p class="card-text">
                 {{ s.opis }}
               </p>
-              <a href="#" class="btn mt-auto" @click="viewSculpture()">Više</a>
             </div>
           </div>
         </router-link>
@@ -232,7 +232,7 @@
         >
           <div
             class="card border-0"
-            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 750px; margin-top: 30px"
+            style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 100%; margin-top: 30px"
           >
             <img
               v-bind:src="'artworks/' + s.photo + '.jpg'"
@@ -250,7 +250,6 @@
               <p class="card-text">
                 {{ s.description }}
               </p>
-              <a href="#" class="btn mt-auto" @click="viewSculpture()">More</a>
             </div>
           </div>
         </router-link>
@@ -290,6 +289,11 @@
 
 .sculpture-single{
   padding-right: 30px;
+}
+
+.card-img {
+      object-fit: cover;
+    object-position: 20% 20%;
 }
 </style>
 
