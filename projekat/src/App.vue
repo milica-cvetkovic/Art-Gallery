@@ -45,6 +45,10 @@ export default {
   name: "App",
   components: { NavigationView, FooterView },
   created() {
+    if (localStorage.getItem("language") == null){
+      let language = 'english';
+      localStorage.setItem("language", JSON.stringify(language));
+    }
     if (localStorage.getItem("offers") == null) {
       let offers = [
         {

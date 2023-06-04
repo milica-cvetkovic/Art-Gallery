@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="footer">
-      <h6>
+      <h6 style="padding-bottom: 10px">
         <i>
           Copyright 2023, Милица Цветковић и Жељко Урошевић, Одсек за софтверско
           инжењерство Електротехничког факултета Универзитета у Београду
@@ -13,7 +13,6 @@
 
 <style scoped>
 .footer {
-  position:fixed;
   left: 0;
   bottom: 0;
   color: white;

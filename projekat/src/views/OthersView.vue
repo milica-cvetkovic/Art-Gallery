@@ -272,6 +272,7 @@
   background: rgba(255, 255, 255, 0.8);
   margin-bottom: -99999px;
   padding-bottom: 200px;
+  min-height: 100vh;
 }
 
 #others-display {
@@ -322,63 +323,160 @@ export default {
   methods: {
     sort() {
       let comparingFunction = null;
-      if (this.nameSort == "" && this.artistSort == "") {
-        return;
-      } else if (this.nameSort != "" && this.artistSort == "") {
-        if (this.nameSort == "nameSortAsc") {
-          comparingFunction = function (a, b) {
-            if (a.name < b.name) {
-              return -1;
-            } else if (a.name > b.name) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
+      if (this.verify() == "serbian") {
+        if (this.nameSort == "" && this.artistSort == "") {
+          return;
+        } else if (this.nameSort != "" && this.artistSort == "") {
+          if (this.nameSort == "nameSortAsc") {
+            comparingFunction = function (a, b) {
+              if (a.ime < b.ime) {
+                return -1;
+              } else if (a.ime > b.ime) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          } else {
+            comparingFunction = function (a, b) {
+              if (a.ime > b.ime) {
+                return -1;
+              } else if (a.ime < b.ime) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          }
+        } else if (this.nameSort == "" && this.artistSort != "") {
+          if (this.artistSort == "artistSortAsc") {
+            comparingFunction = function (a, b) {
+              if (a.umetnik < b.umetnik) {
+                return -1;
+              } else if (a.umetnik > b.umetnik) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          } else if (this.artistSort == "artistSortDesc") {
+            comparingFunction = function (a, b) {
+              if (a.umetnik > b.umetnik) {
+                return -1;
+              } else if (a.umetnik < b.umetnik) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          }
         } else {
-          comparingFunction = function (a, b) {
-            if (a.name > b.name) {
-              return -1;
-            } else if (a.name < b.name) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
-        }
-      } else if (this.nameSort == "" && this.artistSort != "") {
-        if (this.artistSort == "artistSortAsc") {
-          comparingFunction = function (a, b) {
-            if (a.artist < b.artist) {
-              return -1;
-            } else if (a.artist > b.artist) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
-        } else if (this.artistSort == "artistSortDesc") {
-          comparingFunction = function (a, b) {
-            if (a.artist > b.artist) {
-              return -1;
-            } else if (a.artist < b.artist) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
+          if (
+            this.nameSort == "nameSortAsc" &&
+            this.artistSort == "artistSortAsc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.ime < b.ime) {
+                return -1;
+              } else if (a.ime > b.ime) {
+                return 1;
+              } else {
+                if (a.umetnik < b.umetnik) {
+                  return -1;
+                } else if (a.umetnik > b.umetnik) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          } else if (
+            this.nameSort == "nameSortAsc" &&
+            this.artistSort == "artistSortDesc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.ime < b.ime) {
+                return -1;
+              } else if (a.ime > b.ime) {
+                return 1;
+              } else {
+                if (a.umetnik > b.umetnik) {
+                  return -1;
+                } else if (a.umetnik < b.umetnik) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          } else if (
+            this.nameSort == "nameSortDesc" &&
+            this.artistSort == "artistSortAsc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.ime > b.ime) {
+                return -1;
+              } else if (a.ime < b.ime) {
+                return 1;
+              } else {
+                if (a.umetnik < b.umetnik) {
+                  return -1;
+                } else if (a.umetnik > b.umetnik) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          } else if (
+            this.nameSort == "nameSortDesc" &&
+            this.artistSort == "artistSortDesc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.ime > b.ime) {
+                return -1;
+              } else if (a.ime < b.ime) {
+                return 1;
+              } else {
+                if (a.umetnik > b.umetnik) {
+                  return -1;
+                } else if (a.umetnik < b.umetnik) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          }
         }
       } else {
-        if (
-          this.nameSort == "nameSortAsc" &&
-          this.artistSort == "artistSortAsc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name < b.name) {
-              return -1;
-            } else if (a.name > b.name) {
-              return 1;
-            } else {
+        if (this.nameSort == "" && this.artistSort == "") {
+          return;
+        } else if (this.nameSort != "" && this.artistSort == "") {
+          if (this.nameSort == "nameSortAsc") {
+            comparingFunction = function (a, b) {
+              if (a.name < b.name) {
+                return -1;
+              } else if (a.name > b.name) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          } else {
+            comparingFunction = function (a, b) {
+              if (a.name > b.name) {
+                return -1;
+              } else if (a.name < b.name) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          }
+        } else if (this.nameSort == "" && this.artistSort != "") {
+          if (this.artistSort == "artistSortAsc") {
+            comparingFunction = function (a, b) {
               if (a.artist < b.artist) {
                 return -1;
               } else if (a.artist > b.artist) {
@@ -386,18 +484,9 @@ export default {
               } else {
                 return 0;
               }
-            }
-          };
-        } else if (
-          this.nameSort == "nameSortAsc" &&
-          this.artistSort == "artistSortDesc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name < b.name) {
-              return -1;
-            } else if (a.name > b.name) {
-              return 1;
-            } else {
+            };
+          } else if (this.artistSort == "artistSortDesc") {
+            comparingFunction = function (a, b) {
               if (a.artist > b.artist) {
                 return -1;
               } else if (a.artist < b.artist) {
@@ -405,46 +494,86 @@ export default {
               } else {
                 return 0;
               }
-            }
-          };
-        } else if (
-          this.nameSort == "nameSortDesc" &&
-          this.artistSort == "artistSortAsc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name > b.name) {
-              return -1;
-            } else if (a.name < b.name) {
-              return 1;
-            } else {
-              if (a.artist < b.artist) {
+            };
+          }
+        } else {
+          if (
+            this.nameSort == "nameSortAsc" &&
+            this.artistSort == "artistSortAsc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.name < b.name) {
                 return -1;
-              } else if (a.artist > b.artist) {
+              } else if (a.name > b.name) {
                 return 1;
               } else {
-                return 0;
+                if (a.artist < b.artist) {
+                  return -1;
+                } else if (a.artist > b.artist) {
+                  return 1;
+                } else {
+                  return 0;
+                }
               }
-            }
-          };
-        } else if (
-          this.nameSort == "nameSortDesc" &&
-          this.artistSort == "artistSortDesc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name > b.name) {
-              return -1;
-            } else if (a.name < b.name) {
-              return 1;
-            } else {
-              if (a.artist > b.artist) {
+            };
+          } else if (
+            this.nameSort == "nameSortAsc" &&
+            this.artistSort == "artistSortDesc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.name < b.name) {
                 return -1;
-              } else if (a.artist < b.artist) {
+              } else if (a.name > b.name) {
                 return 1;
               } else {
-                return 0;
+                if (a.artist > b.artist) {
+                  return -1;
+                } else if (a.artist < b.artist) {
+                  return 1;
+                } else {
+                  return 0;
+                }
               }
-            }
-          };
+            };
+          } else if (
+            this.nameSort == "nameSortDesc" &&
+            this.artistSort == "artistSortAsc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.name > b.name) {
+                return -1;
+              } else if (a.name < b.name) {
+                return 1;
+              } else {
+                if (a.artist < b.artist) {
+                  return -1;
+                } else if (a.artist > b.artist) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          } else if (
+            this.nameSort == "nameSortDesc" &&
+            this.artistSort == "artistSortDesc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.name > b.name) {
+                return -1;
+              } else if (a.name < b.name) {
+                return 1;
+              } else {
+                if (a.artist > b.artist) {
+                  return -1;
+                } else if (a.artist < b.artist) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          }
         }
       }
       this.others.sort(comparingFunction);
@@ -454,11 +583,11 @@ export default {
       if (this.searchWord == "") {
         return;
       }
+      let language = JSON.parse(localStorage.getItem("language"));
       let searchWordLower = this.searchWord.toLowerCase();
       this.others = this.others.filter(function (elem) {
-        if (
-          elem.name.toLowerCase().includes(searchWordLower) ||
-          elem.artist.toLowerCase().includes(searchWordLower)
+        if ((language == "english" && (elem.name.toLowerCase().includes(searchWordLower) || elem.artist.toLowerCase().includes(searchWordLower))) || 
+            (language == "serbian" && (elem.ime.toLowerCase().includes(searchWordLower) || elem.umetnik.toLowerCase().includes(searchWordLower)))
         ) {
           return true;
         } else {
@@ -466,9 +595,9 @@ export default {
         }
       });
     },
-    verify(){
-    return JSON.parse(localStorage.getItem('language'));
-  }
+    verify() {
+      return JSON.parse(localStorage.getItem("language"));
+    },
   },
 };
 </script>

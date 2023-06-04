@@ -113,25 +113,70 @@
       </div>
     </div>
     <br>
-    <div class="row" style="margin-bottom: 500px">
-      <hr>
-      <h4>
-        Ponude za ovu umetninu
-      </h4>
-      <div class="row">
-        <div class="col-3" v-for="o of offers" :key="o.id">
-          Korisnik: {{o.username}}
-          Iznos: {{o.bidding}}
+    <div class="row" style="margin-top: 100px">
+      <hr />
+      <div class="col-sm-6">
+        <h4 style="text-align: center">Ponude za ovu umetninu</h4>
+        <div class="row">
+          <div class="col-sm-6 single" v-for="o of offers" :key="o.id">
+            <div class="left-label" style="margin-bottom: 5px">
+              <b>Korisnik:</b> {{ o.username }}
+            </div>
+            <div class="left-label"><b>Iznos:</b> {{ o.bidding }}</div>
+          </div>
         </div>
+      </div>
+      <div class="col-sm-6">
+        <h4 style="text-align: center">Poruke za umetnika</h4>
+        <div class="row" style="text-align: left">
+          <div class="col-sm-12 single" v-for="m of messages" :key="m.id">
+            <div style="margin-bottom: 5px">
+              <b>Korisnik:</b> {{ m.username }}
+            </div>
+            <div><b>Tekst poruke:</b> {{ m.text }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row" style="margin-bottom: 200px; margin-top: 100px">
+      <div class="col-sm-6 offers-bottom-left" style="margin-top: 20px">
+        <h4 style="text-align: center; margin-bottom: 30px">
+          Postavite ponudu
+        </h4>
+        Iznos:
+        <input type="text" v-model="bidding" id="biddingInput" /> <br />
+        <button
+          class="btn btn-dark"
+          style="margin-top: 10px"
+          @click="postOffer()"
+          for="biddingInput"
+        >
+          Postavi ponudu
+        </button>
+      </div>
+      <div class="col-sm-6 offers-bottom-right" style="margin-top: 20px">
+        <h4 style="text-align: center; margin-bottom: 30px">
+          Ostavite poruku za umetnika
+        </h4>
+        Tekst poruke:
+        <input type="text" v-model="message" /> <br />
+        <button
+          class="btn btn-dark"
+          style="margin-top: 10px"
+          @click="postMessage()"
+        >
+          Ostavi poruku
+        </button>
       </div>
     </div>
   </div>
   <div v-else class="container-fluid" id="other-container">
    <div class="row">
      <div class="col-sm-12" style="float:left;" id="breadcrumbs">
-          <router-link to="/" style="text-decoration: none; color: gray"> Početna </router-link> / 
-          <span style="color: gray"> Umetnine </span> / <router-link to="/others" style="text-decoration: none; color: gray"> Ostalo </router-link> 
-          / {{other.ime}}
+          <router-link to="/" style="text-decoration: none; color: gray"> Home </router-link> / 
+          <span style="color: gray"> Artworks </span> / <router-link to="/others" style="text-decoration: none; color: gray"> Others </router-link> 
+          / {{other.name}}
       </div>
    </div>
     <div class="row">
@@ -141,15 +186,15 @@
     </div>
     <div class="row">
       <div class="col-sm-12">
-        <h3 id="other-name">{{ other.ime }}</h3>
+        <h3 id="other-name">{{ other.name }}</h3>
       </div>
     </div>
     <hr />
     <div class="row">
       <div class="col-sm-12">
-        <h4>{{ other.umetnik }}</h4>
+        <h4>{{ other.artist }}</h4>
         <div id="about-artist">
-          <p>{{ other.oUmetniku }}</p>
+          <p>{{ other.aboutArtist }}</p>
         </div>
       </div>
     </div>
@@ -164,7 +209,7 @@
     <div class="row wrapper-outer">
       <div>
         <br>
-        <h2><strong>Galerija slika</strong></h2>
+        <h2><strong>Photo Gallery</strong></h2>
         <br>
       </div>
       <div id="wrapper">
@@ -232,7 +277,7 @@
     <div class="row">
       <div>
         <br>
-        <h2><strong>Galerija video</strong></h2>
+        <h2><strong>Video gallery</strong></h2>
         <br>
       </div>
       <div class="ratio ratio-16x9">
@@ -240,16 +285,57 @@
       </div>
     </div>
     <br>
-    <div class="row" style="margin-bottom: 500px">
-      <hr>
-      <h4>
-        Ponude za ovu umetninu
-      </h4>
-      <div class="row">
-        <div class="col-3" v-for="o of offers" :key="o.id">
-          Korisnik: {{o.username}}
-          Iznos: {{o.bidding}}
+    <div class="row" style="margin-top: 100px">
+      <hr />
+      <div class="col-sm-6">
+        <h4 style="text-align: center">Offers for this artwork</h4>
+        <div class="row">
+          <div class="col-sm-6 single" v-for="o of offers" :key="o.id">
+            <div class="left-label" style="margin-bottom: 5px">
+              <b>User:</b> {{ o.username }}
+            </div>
+            <div class="left-label"><b>Value:</b> {{ o.bidding }}</div>
+          </div>
         </div>
+      </div>
+      <div class="col-sm-6">
+        <h4 style="text-align: center">Message for artist</h4>
+        <div class="row" style="text-align: left">
+          <div class="col-sm-12 single" v-for="m of messages" :key="m.id">
+            <div style="margin-bottom: 5px"><b>User:</b> {{ m.username }}</div>
+            <div><b>Message:</b> {{ m.text }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row" style="margin-bottom: 200px; margin-top: 100px">
+      <div class="col-sm-6 offers-bottom-left" style="margin-top: 20px">
+        <h4 style="text-align: center; margin-bottom: 30px">Leave an offer</h4>
+        Value:
+        <input type="text" v-model="bidding" id="biddingInput" /> <br />
+        <button
+          class="btn btn-dark"
+          style="margin-top: 10px"
+          @click="postOffer()"
+          for="biddingInput"
+        >
+          Post offer
+        </button>
+      </div>
+      <div class="col-sm-6 offers-bottom-right" style="margin-top: 20px">
+        <h4 style="text-align: center; margin-bottom: 30px">
+          Leave a message for the artist
+        </h4>
+        Message:
+        <input type="text" v-model="message" /> <br />
+        <button
+          class="btn btn-dark"
+          style="margin-top: 10px"
+          @click="postMessage()"
+        >
+          Leave message
+        </button>
       </div>
     </div>
   </div>
@@ -261,6 +347,7 @@
   padding-right: 100px;
   padding-left: 100px;
   padding-bottom: 1px;
+  min-height: 100vh;
 }
 
 #other-name {
@@ -327,6 +414,11 @@ h4 {
   padding-top: 9px;
 }
 
+.single {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 </style>
 
 <script>
@@ -340,7 +432,8 @@ export default {
       others: others,
       other: {},
       offers: [],
-      user: ""
+      user: "",
+      messages: []
     };
   },
   created() {

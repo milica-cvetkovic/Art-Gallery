@@ -1,5 +1,5 @@
 <template>
-    <div class="container" style="margin-top: 20px">
+    <div class="container" style="margin-top: 20px" id="about">
         <div class="row" style="display: flex; justify-content: center">
             <div class="col-lg-6">
                 <div class="card border-0" style="background-color: rgba(255, 255, 255, 0.8); margin-bottom: 20px; height: 450px">
@@ -24,6 +24,12 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+#about{
+    min-height: 100vh;
+}
+</style>
 
 <script>
 import $ from "jquery";

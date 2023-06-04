@@ -35,8 +35,8 @@
             <p class="card-text">
               {{ a.biography }}
             </p>
-            <a href="#" class="btn mt-auto" @click="viewSculpture()"
-              >Sva dela</a
+            <a v-bind:href="'/spisakdela/'+ a.listArtworks" class="btn mt-auto" @click="viewSculpture()"
+              >All artworks</a
             >
           </div>
         </div>
@@ -58,6 +58,7 @@
   background: rgba(255, 255, 255, 0.8);
   /* margin-bottom: -99999px; */
   padding-bottom: 200px;
+  min-height: 100vh;
 }
 
 #artists-display {

@@ -1,6 +1,6 @@
 <template>
   <div v-if="verify() == 'serbian'" class="container-fluid" id="paintings">
-    <div class="row" style="display: flex; justify-content: right;">
+    <div class="row" style="display: flex; justify-content: right">
       <div class="col-sm-12 nput-group mt-2" style="margin-top: 20px">
         <router-link to="/" style="text-decoration: none; color: gray">
           Početna
@@ -20,74 +20,74 @@
             Pretrazi
           </button>
           <div class="dropdown">
-          <button
-            class="btn btn-dark text-decoration-none"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            style="margin-top: 10px;"
-          >
-            Sortiranje
-          </button>
-          <ul
-            class="dropdown-menu dropdown-menu-dark"
-            aria-labelledby="dropdownMenuButton1"
-            style="background-color: rgba(0, 0, 0, 0.9);"
-            onclick="event.stopPropagation()"
-          >
-            <li>
-              <input
-                type="radio"
-                name="nameSort"
-                v-model="nameSort"
-                id="nameSortAsc"
-                value="nameSortAsc"
-                style="margin-left: 20px"
-              /><label for="nameSortAsc" style="margin-left: 20px"
-                >Po nazivu rastuće</label
-              >
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="nameSort"
-                v-model="nameSort"
-                id="nameSortDesc"
-                value="nameSortDesc"
-                style="margin-left: 20px"
-              /><label for="nameSortDesc" style="margin-left: 20px"
-                >Po nazivu opadajuće</label
-              >
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="artistSort"
-                v-model="artistSort"
-                id="artistSortAsc"
-                value="artistSortAsc"
-                style="margin-left: 20px"
-              /><label for="artistSortAsc" style="margin-left: 20px"
-                >Po umetniku rastuće</label
-              >
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="artistSort"
-                v-model="artistSort"
-                id="artistSortDesc"
-                value="artistSortDesc"
-                style="margin-left: 20px"
-              /><label for="artistSortDesc" style="margin-left: 20px"
-                >Po umetniku opadajuće</label
-              >
-            </li>
-            <li style="text-align: center">
-              <button class="btn btn-dark" @click="sort()">Sortiraj</button>
-            </li>
-          </ul>
-        </div>
+            <button
+              class="btn btn-dark text-decoration-none"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style="margin-top: 10px"
+            >
+              Sortiranje
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="dropdownMenuButton1"
+              style="background-color: rgba(0, 0, 0, 0.9)"
+              onclick="event.stopPropagation()"
+            >
+              <li>
+                <input
+                  type="radio"
+                  name="nameSort"
+                  v-model="nameSort"
+                  id="nameSortAsc"
+                  value="nameSortAsc"
+                  style="margin-left: 20px"
+                /><label for="nameSortAsc" style="margin-left: 20px"
+                  >Po nazivu rastuće</label
+                >
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="nameSort"
+                  v-model="nameSort"
+                  id="nameSortDesc"
+                  value="nameSortDesc"
+                  style="margin-left: 20px"
+                /><label for="nameSortDesc" style="margin-left: 20px"
+                  >Po nazivu opadajuće</label
+                >
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="artistSort"
+                  v-model="artistSort"
+                  id="artistSortAsc"
+                  value="artistSortAsc"
+                  style="margin-left: 20px"
+                /><label for="artistSortAsc" style="margin-left: 20px"
+                  >Po umetniku rastuće</label
+                >
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="artistSort"
+                  v-model="artistSort"
+                  id="artistSortDesc"
+                  value="artistSortDesc"
+                  style="margin-left: 20px"
+                /><label for="artistSortDesc" style="margin-left: 20px"
+                  >Po umetniku opadajuće</label
+                >
+              </li>
+              <li style="text-align: center">
+                <button class="btn btn-dark" @click="sort()">Sortiraj</button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -138,7 +138,7 @@
     </div>
   </div>
   <div v-else class="container-fluid" id="paintings">
-    <div class="row" style="display: flex; justify-content: right;">
+    <div class="row" style="display: flex; justify-content: right">
       <div class="col-sm-12 nput-group mt-2" style="margin-top: 20px">
         <router-link to="/" style="text-decoration: none; color: gray">
           Home
@@ -158,74 +158,74 @@
             Search
           </button>
           <div class="dropdown">
-          <button
-            class="btn btn-dark text-decoration-none"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            style="margin-top: 10px;"
-          >
-            Sort
-          </button>
-          <ul
-            class="dropdown-menu dropdown-menu-dark"
-            aria-labelledby="dropdownMenuButton1"
-            style="background-color: rgba(0, 0, 0, 0.9)"
-            onclick="event.stopPropagation()"
-          >
-            <li>
-              <input
-                type="radio"
-                name="nameSort"
-                v-model="nameSort"
-                id="nameSortAsc"
-                value="nameSortAsc"
-                style="margin-left: 20px"
-              /><label for="nameSortAsc" style="margin-left: 20px"
-                >By name ascending</label
-              >
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="nameSort"
-                v-model="nameSort"
-                id="nameSortDesc"
-                value="nameSortDesc"
-                style="margin-left: 20px"
-              /><label for="nameSortDesc" style="margin-left: 20px"
-                >By name descending</label
-              >
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="artistSort"
-                v-model="artistSort"
-                id="artistSortAsc"
-                value="artistSortAsc"
-                style="margin-left: 20px"
-              /><label for="artistSortAsc" style="margin-left: 20px"
-                >By artist ascending</label
-              >
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="artistSort"
-                v-model="artistSort"
-                id="artistSortDesc"
-                value="artistSortDesc"
-                style="margin-left: 20px"
-              /><label for="artistSortDesc" style="margin-left: 20px"
-                >By artist descending</label
-              >
-            </li>
-            <li style="text-align: center">
-              <button class="btn btn-dark" @click="sort()">Sort</button>
-            </li>
-          </ul>
-        </div>
+            <button
+              class="btn btn-dark text-decoration-none"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style="margin-top: 10px"
+            >
+              Sort
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="dropdownMenuButton1"
+              style="background-color: rgba(0, 0, 0, 0.9)"
+              onclick="event.stopPropagation()"
+            >
+              <li>
+                <input
+                  type="radio"
+                  name="nameSort"
+                  v-model="nameSort"
+                  id="nameSortAsc"
+                  value="nameSortAsc"
+                  style="margin-left: 20px"
+                /><label for="nameSortAsc" style="margin-left: 20px"
+                  >By name ascending</label
+                >
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="nameSort"
+                  v-model="nameSort"
+                  id="nameSortDesc"
+                  value="nameSortDesc"
+                  style="margin-left: 20px"
+                /><label for="nameSortDesc" style="margin-left: 20px"
+                  >By name descending</label
+                >
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="artistSort"
+                  v-model="artistSort"
+                  id="artistSortAsc"
+                  value="artistSortAsc"
+                  style="margin-left: 20px"
+                /><label for="artistSortAsc" style="margin-left: 20px"
+                  >By artist ascending</label
+                >
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="artistSort"
+                  v-model="artistSort"
+                  id="artistSortDesc"
+                  value="artistSortDesc"
+                  style="margin-left: 20px"
+                /><label for="artistSortDesc" style="margin-left: 20px"
+                  >By artist descending</label
+                >
+              </li>
+              <li style="text-align: center">
+                <button class="btn btn-dark" @click="sort()">Sort</button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -291,6 +291,7 @@
   background: rgba(255, 255, 255, 0.8);
   margin-bottom: -99999px;
   padding-bottom: 200px;
+  min-height: 100vh;
 }
 
 #paintings-display {
@@ -341,63 +342,160 @@ export default {
   methods: {
     sort() {
       let comparingFunction = null;
-      if (this.nameSort == "" && this.artistSort == "") {
-        return;
-      } else if (this.nameSort != "" && this.artistSort == "") {
-        if (this.nameSort == "nameSortAsc") {
-          comparingFunction = function (a, b) {
-            if (a.name < b.name) {
-              return -1;
-            } else if (a.name > b.name) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
+      if (this.verify() == "serbian") {
+        if (this.nameSort == "" && this.artistSort == "") {
+          return;
+        } else if (this.nameSort != "" && this.artistSort == "") {
+          if (this.nameSort == "nameSortAsc") {
+            comparingFunction = function (a, b) {
+              if (a.ime < b.ime) {
+                return -1;
+              } else if (a.ime > b.ime) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          } else {
+            comparingFunction = function (a, b) {
+              if (a.ime > b.ime) {
+                return -1;
+              } else if (a.ime < b.ime) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          }
+        } else if (this.nameSort == "" && this.artistSort != "") {
+          if (this.artistSort == "artistSortAsc") {
+            comparingFunction = function (a, b) {
+              if (a.umetnik < b.umetnik) {
+                return -1;
+              } else if (a.umetnik > b.umetnik) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          } else if (this.artistSort == "artistSortDesc") {
+            comparingFunction = function (a, b) {
+              if (a.umetnik > b.umetnik) {
+                return -1;
+              } else if (a.umetnik < b.umetnik) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          }
         } else {
-          comparingFunction = function (a, b) {
-            if (a.name > b.name) {
-              return -1;
-            } else if (a.name < b.name) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
-        }
-      } else if (this.nameSort == "" && this.artistSort != "") {
-        if (this.artistSort == "artistSortAsc") {
-          comparingFunction = function (a, b) {
-            if (a.artist < b.artist) {
-              return -1;
-            } else if (a.artist > b.artist) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
-        } else if (this.artistSort == "artistSortDesc") {
-          comparingFunction = function (a, b) {
-            if (a.artist > b.artist) {
-              return -1;
-            } else if (a.artist < b.artist) {
-              return 1;
-            } else {
-              return 0;
-            }
-          };
+          if (
+            this.nameSort == "nameSortAsc" &&
+            this.artistSort == "artistSortAsc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.ime < b.ime) {
+                return -1;
+              } else if (a.ime > b.ime) {
+                return 1;
+              } else {
+                if (a.umetnik < b.umetnik) {
+                  return -1;
+                } else if (a.umetnik > b.umetnik) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          } else if (
+            this.nameSort == "nameSortAsc" &&
+            this.artistSort == "artistSortDesc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.ime < b.ime) {
+                return -1;
+              } else if (a.ime > b.ime) {
+                return 1;
+              } else {
+                if (a.umetnik > b.umetnik) {
+                  return -1;
+                } else if (a.umetnik < b.umetnik) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          } else if (
+            this.nameSort == "nameSortDesc" &&
+            this.artistSort == "artistSortAsc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.ime > b.ime) {
+                return -1;
+              } else if (a.ime < b.ime) {
+                return 1;
+              } else {
+                if (a.umetnik < b.umetnik) {
+                  return -1;
+                } else if (a.umetnik > b.umetnik) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          } else if (
+            this.nameSort == "nameSortDesc" &&
+            this.artistSort == "artistSortDesc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.ime > b.ime) {
+                return -1;
+              } else if (a.ime < b.ime) {
+                return 1;
+              } else {
+                if (a.umetnik > b.umetnik) {
+                  return -1;
+                } else if (a.umetnik < b.umetnik) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          }
         }
       } else {
-        if (
-          this.nameSort == "nameSortAsc" &&
-          this.artistSort == "artistSortAsc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name < b.name) {
-              return -1;
-            } else if (a.name > b.name) {
-              return 1;
-            } else {
+        if (this.nameSort == "" && this.artistSort == "") {
+          return;
+        } else if (this.nameSort != "" && this.artistSort == "") {
+          if (this.nameSort == "nameSortAsc") {
+            comparingFunction = function (a, b) {
+              if (a.name < b.name) {
+                return -1;
+              } else if (a.name > b.name) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          } else {
+            comparingFunction = function (a, b) {
+              if (a.name > b.name) {
+                return -1;
+              } else if (a.name < b.name) {
+                return 1;
+              } else {
+                return 0;
+              }
+            };
+          }
+        } else if (this.nameSort == "" && this.artistSort != "") {
+          if (this.artistSort == "artistSortAsc") {
+            comparingFunction = function (a, b) {
               if (a.artist < b.artist) {
                 return -1;
               } else if (a.artist > b.artist) {
@@ -405,18 +503,9 @@ export default {
               } else {
                 return 0;
               }
-            }
-          };
-        } else if (
-          this.nameSort == "nameSortAsc" &&
-          this.artistSort == "artistSortDesc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name < b.name) {
-              return -1;
-            } else if (a.name > b.name) {
-              return 1;
-            } else {
+            };
+          } else if (this.artistSort == "artistSortDesc") {
+            comparingFunction = function (a, b) {
               if (a.artist > b.artist) {
                 return -1;
               } else if (a.artist < b.artist) {
@@ -424,46 +513,86 @@ export default {
               } else {
                 return 0;
               }
-            }
-          };
-        } else if (
-          this.nameSort == "nameSortDesc" &&
-          this.artistSort == "artistSortAsc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name > b.name) {
-              return -1;
-            } else if (a.name < b.name) {
-              return 1;
-            } else {
-              if (a.artist < b.artist) {
+            };
+          }
+        } else {
+          if (
+            this.nameSort == "nameSortAsc" &&
+            this.artistSort == "artistSortAsc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.name < b.name) {
                 return -1;
-              } else if (a.artist > b.artist) {
+              } else if (a.name > b.name) {
                 return 1;
               } else {
-                return 0;
+                if (a.artist < b.artist) {
+                  return -1;
+                } else if (a.artist > b.artist) {
+                  return 1;
+                } else {
+                  return 0;
+                }
               }
-            }
-          };
-        } else if (
-          this.nameSort == "nameSortDesc" &&
-          this.artistSort == "artistSortDesc"
-        ) {
-          comparingFunction = function (a, b) {
-            if (a.name > b.name) {
-              return -1;
-            } else if (a.name < b.name) {
-              return 1;
-            } else {
-              if (a.artist > b.artist) {
+            };
+          } else if (
+            this.nameSort == "nameSortAsc" &&
+            this.artistSort == "artistSortDesc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.name < b.name) {
                 return -1;
-              } else if (a.artist < b.artist) {
+              } else if (a.name > b.name) {
                 return 1;
               } else {
-                return 0;
+                if (a.artist > b.artist) {
+                  return -1;
+                } else if (a.artist < b.artist) {
+                  return 1;
+                } else {
+                  return 0;
+                }
               }
-            }
-          };
+            };
+          } else if (
+            this.nameSort == "nameSortDesc" &&
+            this.artistSort == "artistSortAsc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.name > b.name) {
+                return -1;
+              } else if (a.name < b.name) {
+                return 1;
+              } else {
+                if (a.artist < b.artist) {
+                  return -1;
+                } else if (a.artist > b.artist) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          } else if (
+            this.nameSort == "nameSortDesc" &&
+            this.artistSort == "artistSortDesc"
+          ) {
+            comparingFunction = function (a, b) {
+              if (a.name > b.name) {
+                return -1;
+              } else if (a.name < b.name) {
+                return 1;
+              } else {
+                if (a.artist > b.artist) {
+                  return -1;
+                } else if (a.artist < b.artist) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              }
+            };
+          }
         }
       }
       this.paintings.sort(comparingFunction);
@@ -473,11 +602,11 @@ export default {
       if (this.searchWord == "") {
         return;
       }
+      let language = JSON.parse(localStorage.getItem("language"));
       let searchWordLower = this.searchWord.toLowerCase();
       this.paintings = this.paintings.filter(function (elem) {
-        if (
-          elem.name.toLowerCase().includes(searchWordLower) ||
-          elem.artist.toLowerCase().includes(searchWordLower)
+        if ((language == "english" && (elem.name.toLowerCase().includes(searchWordLower) || elem.artist.toLowerCase().includes(searchWordLower))) || 
+            (language == "serbian" && (elem.ime.toLowerCase().includes(searchWordLower) || elem.umetnik.toLowerCase().includes(searchWordLower)))
         ) {
           return true;
         } else {

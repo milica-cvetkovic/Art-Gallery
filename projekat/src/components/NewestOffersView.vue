@@ -8,7 +8,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-4" v-for="o of offers" :key="o.id">
+        <div class="col-md-4" v-for="o of offers" :key="o.id" style="margin-top: 20px">
           <router-link :to="o.link" style="text-decoration: none">
             <div class="card">
               <img

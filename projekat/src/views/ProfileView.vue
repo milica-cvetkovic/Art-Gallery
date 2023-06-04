@@ -65,6 +65,7 @@
 #form-div, #register-div {
   background: rgba(255, 255, 255, 0.8);
   padding-top: 30px;
+  min-height: 100vh;
 }
 
 </style>
@@ -79,7 +80,11 @@ export default {
   name: "ProfileView",
   components: { ProfileOffersView, ProfileMessagesView },
   mounted: function () {
-    $(document).prop("title", "Fine Art Co Profile");
+    if (this.verify() == "serbian") {
+      $(document).prop("title", "Fine Art Co Profil");
+    } else {
+      $(document).prop("title", "Fine Art Co Profile");
+    }
   },
   data() {
     return {

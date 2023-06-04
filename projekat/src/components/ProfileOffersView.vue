@@ -73,14 +73,30 @@ export default {
   created() {
     let user = localStorage.getItem("user");
     let offers = JSON.parse(localStorage.getItem("offers"));
-    let paintings = JSON.parse(localStorage.getItem("paintings")); // ovde treba da se doda da se trazi iz svih tipova umetnina
+    let paintings = JSON.parse(localStorage.getItem("paintings"));
+    let sculptures = JSON.parse(localStorage.getItem("sculptures"));
+    let others = JSON.parse(localStorage.getItem("others"));
     for (let i = 0; i < offers.length; i++) {
       if (offers[i].username == user) {
         this.myOffers.push(offers[i]);
-        let artwork = paintings.find(
+        let painting = paintings.find(
           (element) => element.name == offers[i].artwork
         );
-        this.myOffers[this.myOffers.length - 1].photo = artwork.photo;
+        let sculpture = sculptures.find(
+          (element) => element.name == offers[i].artwork
+        );
+        let other = others.find(
+          (element) => element.name == offers[i].artwork
+        );
+        if (painting != null) {
+          this.myOffers[this.myOffers.length - 1].photo = painting.photo;
+        }
+        else if (sculpture != null){
+          this.myOffers[this.myOffers.length - 1].photo = sculpture.photo;
+        }
+        else if (other != null){
+          this.myOffers[this.myOffers.length - 1].photo = other.photo;
+        }
         this.myOffers[this.myOffers.length - 1].day = (new Date(offers[i].date)).getDate();
         this.myOffers[this.myOffers.length - 1].month = (new Date(offers[i].date)).getMonth() + 1;
         this.myOffers[this.myOffers.length - 1].year = (new Date(offers[i].date)).getYear() + 1900;

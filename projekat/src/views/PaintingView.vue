@@ -385,6 +385,7 @@
   padding-right: 100px;
   padding-left: 100px;
   padding-bottom: 1px;
+  min-height: 100vh;
 }
 
 #painting-name {

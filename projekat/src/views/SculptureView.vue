@@ -301,23 +301,18 @@
         <h4 style="text-align: center">Message for artist</h4>
         <div class="row" style="text-align: left">
           <div class="col-sm-12 single" v-for="m of messages" :key="m.id">
-            <div style="margin-bottom: 5px">
-              <b>User:</b> {{ m.username }}
-            </div>
+            <div style="margin-bottom: 5px"><b>User:</b> {{ m.username }}</div>
             <div><b>Message:</b> {{ m.text }}</div>
           </div>
         </div>
       </div>
     </div>
-    <hr>
+    <hr />
     <div class="row" style="margin-bottom: 200px; margin-top: 100px">
-      
       <div class="col-sm-6 offers-bottom-left" style="margin-top: 20px">
-        <h4 style="text-align: center; margin-bottom: 30px">
-          Leave an offer
-        </h4>
+        <h4 style="text-align: center; margin-bottom: 30px">Leave an offer</h4>
         Value:
-        <input type="text" v-model="bidding" id="biddingInput"/> <br />
+        <input type="text" v-model="bidding" id="biddingInput" /> <br />
         <button
           class="btn btn-dark"
           style="margin-top: 10px"
@@ -328,9 +323,11 @@
         </button>
       </div>
       <div class="col-sm-6 offers-bottom-right" style="margin-top: 20px">
-        <h4 style="text-align: center; margin-bottom: 30px">Leave a message for the artist</h4>
+        <h4 style="text-align: center; margin-bottom: 30px">
+          Leave a message for the artist
+        </h4>
         Message:
-        <input type="text" v-model="message"/> <br />
+        <input type="text" v-model="message" /> <br />
         <button
           class="btn btn-dark"
           style="margin-top: 10px"
@@ -349,6 +346,7 @@
   padding-right: 100px;
   padding-left: 100px;
   padding-bottom: 1px;
+  min-height: 100vh;
 }
 
 #sculpture-name {
@@ -424,6 +422,11 @@ h4 {
   text-align: left;
 }
 
+.single {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 </style>
 
 <script>
@@ -437,7 +440,8 @@ export default {
       sculptures: sculptures,
       sculpture: {},
       offers: [],
-      user: ""
+      user: "",
+      messages: []
     };
   },
   created() {
