@@ -43,7 +43,7 @@
 </div>
 </div>
 
-<div v-else class="rest">
+<div v-else class="rest" style="margin-top: -20px; background: rgba(1, 1, 1, 0.7);">
   <ProfileOffersView></ProfileOffersView>
   <profile-messages-view></profile-messages-view>
   <button type="button" class="btn btn-dark btn-block mb-3" @click="logout()">Log out</button>

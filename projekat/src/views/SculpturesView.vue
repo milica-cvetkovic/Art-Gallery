@@ -234,7 +234,7 @@
             class="card border-0"
             style="background-color: rgba(255, 255, 255, 0.8); margin: auto; height: 100%; margin-top: 30px"
           >
-            <img
+            <img class="card-img"
               v-bind:src="'artworks/' + s.photo + '.jpg'"
               alt="image"
               style="

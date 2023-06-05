@@ -252,7 +252,7 @@
               margin-top: 30px;
             "
           >
-            <img
+            <img class="card-img"
               v-bind:src="'artworks/' + p.photo + '.jpg'"
               alt="image"
               style="
