@@ -105,7 +105,7 @@ export default {
         let artist = artists.find(
           (element) => element.id == messages[i].idArtist
         );
-        this.myMessages[this.myMessages.length - 1].artist = artist.name + " " + artist.surname;
+        this.myMessages[this.myMessages.length - 1].artist = artist.name;
         this.myMessages[this.myMessages.length - 1].photo = artist.photo;
       }
     }
