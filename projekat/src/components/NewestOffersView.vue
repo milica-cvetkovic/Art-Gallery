@@ -8,7 +8,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4" v-for="o of offers" :key="o.id" style="margin-top: 20px">
+        <div class="col-md-4 single-offer" v-for="o of offers" :key="o.id" style="margin-top: 20px">
           <router-link :to="o.link" style="text-decoration: none">
             <div class="card">
               <img
@@ -43,7 +43,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-4" v-for="o of offers" :key="o.id">
+        <div class="col-sm-4 single-offer" v-for="o of offers" :key="o.id">
           <router-link :to="o.link" style="text-decoration: none">
             <div class="card">
               <img
@@ -88,6 +88,10 @@
 
 .exibition-area {
   overflow: hidden;
+}
+
+.single-offer:hover{
+  transform: scale(1.05);
 }
 
 #newest-offers {

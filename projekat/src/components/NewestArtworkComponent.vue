@@ -8,7 +8,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4" v-for="a of artworks" :key="a.id" style="margin-top: 20px">
+        <div class="col-md-4 single-artwork" v-for="a of artworks" :key="a.id" style="margin-top: 20px">
           <router-link :to="a.link" style="text-decoration: none">
             <div class="card">
               <img
@@ -42,7 +42,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-4" v-for="a of artworks" :key="a.id">
+        <div class="col-sm-4 single-artwork" v-for="a of artworks" :key="a.id">
           <router-link :to="a.link" style="text-decoration: none">
             <div class="card">
               <img
@@ -78,6 +78,10 @@
 
 .section-gap {
   padding: 120px 0;
+}
+
+.single-artwork:hover {
+  transform: scale(1.05);
 }
 
 .single-exibition .date {
